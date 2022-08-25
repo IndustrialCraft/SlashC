@@ -2,35 +2,27 @@ package com.github.industrialcraft.slashc;
 
 import com.github.industrialcraft.slashc.antlr.slashLexer;
 import com.github.industrialcraft.slashc.antlr.slashParser;
-import com.github.industrialcraft.slashc.codegen.TupleGenerator;
-import com.github.industrialcraft.slashc.util.TupleTest;
-import org.objectweb.asm.Type;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Path;
-
-import java.util.Arrays;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-import org.antlr.v4.runtime.ANTLRInputStream;
-import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.TokenStream;
-import org.antlr.v4.runtime.tree.ParseTree;
+import com.github.industrialcraft.slashc.parsing.ParsedSourceFile;
+import com.github.industrialcraft.slashc.util.CompilationOutput;
 import org.antlr.v4.gui.TreeViewer;
+import org.antlr.v4.runtime.*;
+
+import javax.swing.*;
+import java.io.File;
+import java.util.Arrays;
 
 public class SlashCMain {
     public static void main(String[] args) throws Exception {
-        CharStream stream = new ANTLRInputStream("package mmm::ahoj;import lol::ahoj;import ahoj::lol;class AAA{}");
+        CharStream stream = CharStreams.fromFileName("main.sl");
         slashLexer lexer  = new slashLexer(stream);
         TokenStream tokenStream = new CommonTokenStream(lexer);
         slashParser parser = new slashParser(tokenStream);
-        ParseTree tree = parser.source_file();
+        var tree = parser.source_file();
+        CompilationOutput compilationOutput = new CompilationOutput(new File("main.sl"));
+        ParsedSourceFile sourceFile = new ParsedSourceFile(tree, compilationOutput);
+        compilationOutput.print();
+        System.out.println(sourceFile);
+
 
         //show AST in console
         System.out.println(tree.toStringTree(parser));

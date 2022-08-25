@@ -1,12 +1,39 @@
 grammar slash;
 
-source_file: package_statement import_statement* CLASS ID LBRACE class_content RBRACE;
+source_file: package_statement import_statement* CLASS ID LBRACE class_member* RBRACE;
 
-class_content:;
+class_member:class_attribute|class_method;
 
-package_statement: PACKAGE dcol_id SEMI;
-import_statement: IMPORT dcol_id SEMI;
-dcol_id: ID (DCOLON ID)*;
+class_attribute:visibility? type ID SEMI;
+class_method:visibility? STATIC? type ID LPAREN (method_param (COMMA method_param)*)? RPAREN code_frame;
+method_param:type ID;
+code_frame: LBRACE (instruction)* RBRACE;
+
+instruction
+    : expr SEMI #expressionInst
+    | IF LPAREN expr RPAREN instruction #ifInst
+    | code_frame #codeFrameInst
+    ;
+expr
+    : LPAREN expr RPAREN #encapsulateExpr
+    | literal #literalExpr
+    | ID #idExpr
+    | (expr DOT)? ID LPAREN (expr (COMMA expr)*)? RPAREN #callExpr
+    ;
+
+literal
+    : INT #intLiteral
+    | FLOAT #floatLiteral
+    | STRING #stringLiteral
+    ;
+
+type: (dot_id | AUTO) QMARK? HASH?;
+
+visibility: PUBLIC | PRIVATE | PROTECTED;
+
+package_statement: PACKAGE dot_id SEMI;
+import_statement: IMPORT dot_id SEMI;
+dot_id: ID (DOT ID)*;
 
 COMMENT : '/*' .*? '*/' -> skip ;
 LINE_COMMENT : '//' ~'\n'* '\n' -> skip ;
@@ -14,7 +41,7 @@ WS: (' ' | '\t')+ -> skip;
 NL: ('\r' '\n'? | '\n') -> skip;
 
 FLOAT
-    :   '-'? INT '.' INT?   // 1.35, 1.35E-9, 0.3, -4.5
+    :   '-'? INT '.' INT?
     ;
 INT :   '0' | [1-9] [0-9]* ;
 STRING :  '"' (ESC | ~["\\])* '"' ;
@@ -32,6 +59,11 @@ BREAK: 'break';
 CONTINUE: 'continue';
 IMPORT: 'import ';
 AUTO: 'auto';
+STATIC: 'static';
+
+PUBLIC: 'public';
+PROTECTED: 'protected';
+PRIVATE: 'private';
 
 RANGE: '..';
 ARROW: '->';
@@ -72,6 +104,8 @@ XOR: '^';
 NOT: '!';
 TILDE: '~';
 
+DOT: '.';
+HASH: '#';
 QMARK: '?';
 DCOLON: '::';
 COLON: ':';
