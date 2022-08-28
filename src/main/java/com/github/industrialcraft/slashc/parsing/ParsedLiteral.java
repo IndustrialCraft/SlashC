@@ -20,6 +20,9 @@ public abstract class ParsedLiteral {
             if (literalContext instanceof slashParser.StringLiteralContext stringLiteralContext) {
                 return new ParsedStringLiteral(parsedData, stringLiteralContext.getText());
             }
+            if(literalContext instanceof slashParser.BoolLiteralsContext boolLiteralsContext){
+                return new ParsedBoolLiteral(parsedData, boolLiteralsContext.TRUE() != null);
+            }
         } catch (Exception e){
             compilationOutput.addError(parsedData, "Error parsing literal: " + e.getMessage());
         }
@@ -42,6 +45,13 @@ public abstract class ParsedLiteral {
     public static class ParsedStringLiteral extends ParsedLiteral{
         public final String value;
         public ParsedStringLiteral(ParsedData parsedData, String value) {
+            super(parsedData);
+            this.value = value;
+        }
+    }
+    public static class ParsedBoolLiteral extends ParsedLiteral{
+        public final boolean value;
+        public ParsedBoolLiteral(ParsedData parsedData, boolean value) {
             super(parsedData);
             this.value = value;
         }

@@ -1,11 +1,16 @@
 package com.github.industrialcraft.slashc.typing;
 
+import com.github.industrialcraft.slashc.parsing.ParsedData;
 import com.github.industrialcraft.slashc.parsing.ParsedInstruction;
 import com.github.industrialcraft.slashc.typeCreation.ImportList;
 import com.github.industrialcraft.slashc.typeCreation.TypeStorage;
 import com.github.industrialcraft.slashc.typeCreation.TypedType;
+import com.github.industrialcraft.slashc.typingClassMembers.TypedNamedType;
 import com.github.industrialcraft.slashc.util.CompilationOutput;
 import com.github.industrialcraft.slashc.util.ITypedNamedTypeProvider;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class TypedInstruction {
     public static TypedInstruction fromParsed(ITypedNamedTypeProvider typedNameProvider, ParsedInstruction instruction, TypeStorage typeStorage, ImportList importList, CompilationOutput compilationOutput){
@@ -39,6 +44,9 @@ public class TypedInstruction {
         if(instruction instanceof ParsedInstruction.ParsedLoopInstruction loopInstruction){
             return new TypedLoopInstruction(TypedInstruction.fromParsed(typedNameProvider, loopInstruction.instruction, typeStorage, importList, compilationOutput));
         }
+        if(instruction instanceof ParsedInstruction.ParsedForInstruction forInstruction){
+            return new TypedForInstruction(forInstruction.type.toTyped(typeStorage, importList, compilationOutput), forInstruction.varName, TypedExpression.fromParsed(forInstruction.expression, typedNameProvider, typeStorage, importList, compilationOutput), TypedInstruction.fromParsed(typedNameProvider, forInstruction.instruction, typeStorage, importList, compilationOutput), typedNameProvider);
+        }
         return null;
     }
     public static class TypedCodeBlockInstruction extends TypedInstruction{
@@ -55,9 +63,9 @@ public class TypedInstruction {
     }
     public static class TypedVariableInstruction extends TypedInstruction{
         public final TypedType dataType;//nullable
-        public final String name;
+        public final ParsedData<String> name;
         public final TypedExpression expression;//nullable
-        public TypedVariableInstruction(TypedType dataType, String name, TypedExpression expression) {
+        public TypedVariableInstruction(TypedType dataType, ParsedData<String> name, TypedExpression expression) {
             this.dataType = dataType;
             this.name = name;
             this.expression = expression;
@@ -91,16 +99,28 @@ public class TypedInstruction {
             this.instruction = instruction;
         }
     }
-    public static class TypedForInstruction extends TypedInstruction{
+    public static class TypedForInstruction extends TypedInstruction implements ITypedNamedTypeProvider{
         public final TypedType type;
-        public final String name;
+        public final ParsedData<String> name;
         public final TypedExpression expression;
         public final TypedInstruction instruction;
-        public TypedForInstruction(TypedType type, String name, TypedExpression expression, TypedInstruction instruction) {
+        private final ITypedNamedTypeProvider parentNamedTypeProvider;
+        private final List<TypedNamedType> innerType;
+        public TypedForInstruction(TypedType type, ParsedData<String> name, TypedExpression expression, TypedInstruction instruction, ITypedNamedTypeProvider parentNamedTypeProvider) {
             this.type = type;
             this.name = name;
             this.expression = expression;
             this.instruction = instruction;
+            this.parentNamedTypeProvider = parentNamedTypeProvider;
+            this.innerType = Arrays.asList(new TypedNamedType(type, name));
+        }
+        @Override
+        public List<TypedNamedType> getNamedTypes() {
+            return this.innerType;
+        }
+        @Override
+        public ITypedNamedTypeProvider getNamedTypesParent() {
+            return this.parentNamedTypeProvider;
         }
     }
 }

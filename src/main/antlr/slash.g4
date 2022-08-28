@@ -39,6 +39,7 @@ literal
     : INT #intLiteral
     | FLOAT #floatLiteral
     | STRING #stringLiteral
+    | (TRUE | FALSE) #boolLiterals
     ;
 
 type: (dot_id | AUTO) QMARK? HASH?;
@@ -71,10 +72,12 @@ IF: 'if';
 ELSE: 'else';
 BREAK: 'break';
 CONTINUE: 'continue';
-IMPORT: 'import ';
+IMPORT: 'import';
 AUTO: 'auto';
 STATIC: 'static';
 RETURN: 'return';
+TRUE: 'true';
+FALSE: 'false';
 
 PUBLIC: 'public';
 PROTECTED: 'protected';

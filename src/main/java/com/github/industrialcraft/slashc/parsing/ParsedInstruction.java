@@ -26,7 +26,8 @@ public abstract class ParsedInstruction {
             return new ParsedLoopInstruction(parsedData, ParsedInstruction.fromParsed(loopInstContext.instruction(), compilationOutput));
         }
         if(instructionContext instanceof slashParser.ForInstContext forInstContext){
-            return new ParsedForInstruction(parsedData, new ParsedType(forInstContext.type()), forInstContext.ID().getText(), ParsedExpression.fromParsed(forInstContext.expr(), compilationOutput), fromParsed(forInstContext.instruction(), compilationOutput));
+            //todo:type check
+            return new ParsedForInstruction(parsedData, new ParsedType(forInstContext.type()), ParsedData.fromTerminal(forInstContext.ID()), ParsedExpression.fromParsed(forInstContext.expr(), compilationOutput), fromParsed(forInstContext.instruction(), compilationOutput));
         }
         if(instructionContext instanceof slashParser.ReturnInstContext returnInstContext){
             return new ParsedReturnInstruction(parsedData, returnInstContext.expr()!=null?ParsedExpression.fromParsed(returnInstContext.expr(), compilationOutput):null);
@@ -38,7 +39,7 @@ public abstract class ParsedInstruction {
                 compilationOutput.addError(parsedData, "must at least define or assign");
                 return null;
             }
-            return new ParsedVariableInstruction(parsedData, new ParsedType(variableInstContext.type()), variableInstContext.ID().getText(), ParsedExpression.fromParsed(variableInstContext.expr(), compilationOutput));
+            return new ParsedVariableInstruction(parsedData, new ParsedType(variableInstContext.type()), ParsedData.fromTerminal(variableInstContext.ID()), ParsedExpression.fromParsed(variableInstContext.expr(), compilationOutput));
         }
         return null;
     }
@@ -83,10 +84,10 @@ public abstract class ParsedInstruction {
     }
     public static class ParsedForInstruction extends ParsedInstruction{
         public final ParsedType type;
-        public final String varName;
+        public final ParsedData<String> varName;
         public final ParsedExpression expression;
         public final ParsedInstruction instruction;
-        public ParsedForInstruction(ParsedData parsedData, ParsedType type, String varName, ParsedExpression expression, ParsedInstruction instruction) {
+        public ParsedForInstruction(ParsedData parsedData, ParsedType type, ParsedData<String> varName, ParsedExpression expression, ParsedInstruction instruction) {
             super(parsedData);
             this.type = type;
             this.varName = varName;
@@ -103,9 +104,9 @@ public abstract class ParsedInstruction {
     }
     public static class ParsedVariableInstruction extends ParsedInstruction{
         public final ParsedType type;//nullable
-        public final String id;
+        public final ParsedData<String> id;
         public final ParsedExpression expression;//nullable
-        public ParsedVariableInstruction(ParsedData parsedData, ParsedType type, String id, ParsedExpression expression) {
+        public ParsedVariableInstruction(ParsedData parsedData, ParsedType type, ParsedData<String> id, ParsedExpression expression) {
             super(parsedData);
             this.type = type;
             this.id = id;

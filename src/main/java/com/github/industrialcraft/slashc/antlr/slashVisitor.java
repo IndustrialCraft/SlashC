@@ -220,6 +220,13 @@ public interface slashVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStringLiteral(slashParser.StringLiteralContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code boolLiterals}
+	 * labeled alternative in {@link slashParser#literal}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBoolLiterals(slashParser.BoolLiteralsContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link slashParser#type}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

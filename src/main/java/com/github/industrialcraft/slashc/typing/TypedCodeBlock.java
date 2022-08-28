@@ -1,5 +1,6 @@
 package com.github.industrialcraft.slashc.typing;
 
+import com.github.industrialcraft.slashc.antlr.slashParser;
 import com.github.industrialcraft.slashc.parsing.ParsedCodeBlock;
 import com.github.industrialcraft.slashc.parsing.ParsedInstruction;
 import com.github.industrialcraft.slashc.typeCreation.ImportList;
@@ -20,8 +21,11 @@ public class TypedCodeBlock implements ITypedNamedTypeProvider {
         this.vars = new ArrayList<>();
         this.instructions = new ArrayList<>();
         for(ParsedInstruction parsedInstruction : parsedCodeBlock.instructions){
-            this.instructions.add(TypedInstruction.fromParsed(this, parsedInstruction, typeStorage, importList, compilationOutput));
-            //todo: var instruction
+            TypedInstruction instruction = TypedInstruction.fromParsed(this, parsedInstruction, typeStorage, importList, compilationOutput);
+            this.instructions.add(instruction);
+            if(instruction instanceof TypedInstruction.TypedVariableInstruction variableInstruction){
+                vars.add(new TypedNamedType(variableInstruction.dataType, variableInstruction.name));
+            }
         }
     }
     @Override

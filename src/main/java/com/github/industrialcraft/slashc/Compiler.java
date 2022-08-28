@@ -3,6 +3,7 @@ package com.github.industrialcraft.slashc;
 import com.github.industrialcraft.slashc.antlr.slashLexer;
 import com.github.industrialcraft.slashc.antlr.slashParser;
 import com.github.industrialcraft.slashc.parsing.ParsedSourceFile;
+import com.github.industrialcraft.slashc.parsing.ParsingErrorLogger;
 import com.github.industrialcraft.slashc.typeCreation.BoolPrimitiveType;
 import com.github.industrialcraft.slashc.typeCreation.ClassDataType;
 import com.github.industrialcraft.slashc.typeCreation.TypeStorage;
@@ -25,12 +26,19 @@ public class Compiler {
         this.sourceFiles = new ArrayList<>();
     }
     public void addSource(File file) throws IOException {
+        CompilationOutput compilationOutput = new CompilationOutput(file);
         CharStream stream = CharStreams.fromStream(new FileInputStream(file));
         slashLexer lexer  = new slashLexer(stream);
         TokenStream tokenStream = new CommonTokenStream(lexer);
         slashParser parser = new slashParser(tokenStream);
+        parser.removeErrorListeners();
+        parser.addErrorListener(new ParsingErrorLogger(compilationOutput));
         var tree = parser.source_file();
-        CompilationOutput compilationOutput = new CompilationOutput(file);
+        if(compilationOutput.isFailed()){
+            compilationOutput.print();
+            this.didSourceParsingFail = true;
+            return;
+        }
         ParsedSourceFile sourceFile = new ParsedSourceFile(file, tree, compilationOutput);
         compilationOutput.print();
         if(compilationOutput.isFailed())

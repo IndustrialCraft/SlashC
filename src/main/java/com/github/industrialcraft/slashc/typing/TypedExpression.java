@@ -13,6 +13,6 @@ public class TypedExpression {
         this.returnType = returnType;
     }
     public static TypedExpression fromParsed(ParsedExpression parsedExpression, ITypedNamedTypeProvider varProvider, TypeStorage typeStorage, ImportList importList, CompilationOutput compilationOutput){
-
+        return null;
     }
 }

@@ -388,6 +388,18 @@ public class slashBaseListener implements slashListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterBoolLiterals(slashParser.BoolLiteralsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBoolLiterals(slashParser.BoolLiteralsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterType(slashParser.TypeContext ctx) { }
 	/**
 	 * {@inheritDoc}

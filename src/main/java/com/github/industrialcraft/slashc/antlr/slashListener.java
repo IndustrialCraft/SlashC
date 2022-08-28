@@ -364,6 +364,18 @@ public interface slashListener extends ParseTreeListener {
 	 */
 	void exitStringLiteral(slashParser.StringLiteralContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code boolLiterals}
+	 * labeled alternative in {@link slashParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void enterBoolLiterals(slashParser.BoolLiteralsContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code boolLiterals}
+	 * labeled alternative in {@link slashParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void exitBoolLiterals(slashParser.BoolLiteralsContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link slashParser#type}.
 	 * @param ctx the parse tree
 	 */
