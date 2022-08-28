@@ -1,4 +1,4 @@
-// Generated from /home/mmm/Plocha/IndustrialCraft/SlashC/src/main/antlr/slash.g4 by ANTLR 4.10.1
+// Generated from /home/mmm/Desktop/IndustrialCraft/SlashC/src/main/antlr/slash.g4 by ANTLR 4.10.1
 package com.github.industrialcraft.slashc.antlr;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -112,6 +112,42 @@ public class slashBaseListener implements slashListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterWhileInst(slashParser.WhileInstContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitWhileInst(slashParser.WhileInstContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLoopInst(slashParser.LoopInstContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLoopInst(slashParser.LoopInstContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterForInst(slashParser.ForInstContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitForInst(slashParser.ForInstContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterCodeFrameInst(slashParser.CodeFrameInstContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -119,6 +155,66 @@ public class slashBaseListener implements slashListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCodeFrameInst(slashParser.CodeFrameInstContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVariableInst(slashParser.VariableInstContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVariableInst(slashParser.VariableInstContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterReturnInst(slashParser.ReturnInstContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitReturnInst(slashParser.ReturnInstContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOrElseExpr(slashParser.OrElseExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOrElseExpr(slashParser.OrElseExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCastExpr(slashParser.CastExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCastExpr(slashParser.CastExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSingleOperationExpr(slashParser.SingleOperationExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSingleOperationExpr(slashParser.SingleOperationExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -136,6 +232,18 @@ public class slashBaseListener implements slashListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterNullCheckExpr(slashParser.NullCheckExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNullCheckExpr(slashParser.NullCheckExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterCallExpr(slashParser.CallExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -143,6 +251,42 @@ public class slashBaseListener implements slashListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCallExpr(slashParser.CallExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterRangeExpr(slashParser.RangeExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRangeExpr(slashParser.RangeExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAccessExpr(slashParser.AccessExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAccessExpr(slashParser.AccessExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIdExpr(slashParser.IdExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIdExpr(slashParser.IdExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -160,13 +304,49 @@ public class slashBaseListener implements slashListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIdExpr(slashParser.IdExprContext ctx) { }
+	@Override public void enterBiOperationExpr(slashParser.BiOperationExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIdExpr(slashParser.IdExprContext ctx) { }
+	@Override public void exitBiOperationExpr(slashParser.BiOperationExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAccessArrExpr(slashParser.AccessArrExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAccessArrExpr(slashParser.AccessArrExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBiOperation(slashParser.BiOperationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBiOperation(slashParser.BiOperationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSingleOperation(slashParser.SingleOperationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSingleOperation(slashParser.SingleOperationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

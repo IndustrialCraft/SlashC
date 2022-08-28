@@ -12,15 +12,29 @@ code_frame: LBRACE (instruction)* RBRACE;
 instruction
     : expr SEMI #expressionInst
     | IF LPAREN expr RPAREN instruction #ifInst
+    | WHILE LPAREN expr RPAREN instruction #whileInst
+    | LOOP instruction #loopInst
+    | FOR LPAREN type ID COLON expr RPAREN instruction #forInst
     | code_frame #codeFrameInst
+    | type? ID (ASSIGN expr)? SEMI #variableInst
+    | RETURN expr? SEMI #returnInst
     ;
 expr
-    : LPAREN expr RPAREN #encapsulateExpr
+    : expr (CAST | DYN_CAST) type #castExpr
     | literal #literalExpr
     | ID #idExpr
-    | (expr DOT)? ID LPAREN (expr (COMMA expr)*)? RPAREN #callExpr
+    | expr DOT QMARK? ID #accessExpr
+    | expr LBRACK QMARK? expr RBRACK #accessArrExpr
+    | expr LPAREN (expr (COMMA expr)*)? RPAREN #callExpr
+    | expr QMARK LPAREN expr RPAREN #orElseExpr
+    | expr NOT (LPAREN expr RPAREN)? #nullCheckExpr
+    | LPAREN expr RPAREN #encapsulateExpr
+    | expr RANGE expr #rangeExpr
+    | expr biOperation expr #biOperationExpr
+    | singleOperation expr #singleOperationExpr
     ;
-
+biOperation:PLUS|MINUS|MUL|DIV|MOD|CMP_GREA|CMP_GREA_EQ|CMP_LESS|CMP_LESS_EQ|EQUALS|NOT_EQUALS|SAME|NOT_SAME|LSHIFT|RSHIFT|AND|OR|DAND|DOR|XOR;
+singleOperation:MINUS|NOT|TILDE;
 literal
     : INT #intLiteral
     | FLOAT #floatLiteral
@@ -60,6 +74,7 @@ CONTINUE: 'continue';
 IMPORT: 'import ';
 AUTO: 'auto';
 STATIC: 'static';
+RETURN: 'return';
 
 PUBLIC: 'public';
 PROTECTED: 'protected';

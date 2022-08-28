@@ -1,4 +1,4 @@
-// Generated from /home/mmm/Plocha/IndustrialCraft/SlashC/src/main/antlr/slash.g4 by ANTLR 4.10.1
+// Generated from /home/mmm/Desktop/IndustrialCraft/SlashC/src/main/antlr/slash.g4 by ANTLR 4.10.1
 package com.github.industrialcraft.slashc.antlr;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -92,6 +92,42 @@ public interface slashListener extends ParseTreeListener {
 	 */
 	void exitIfInst(slashParser.IfInstContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code whileInst}
+	 * labeled alternative in {@link slashParser#instruction}.
+	 * @param ctx the parse tree
+	 */
+	void enterWhileInst(slashParser.WhileInstContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code whileInst}
+	 * labeled alternative in {@link slashParser#instruction}.
+	 * @param ctx the parse tree
+	 */
+	void exitWhileInst(slashParser.WhileInstContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code loopInst}
+	 * labeled alternative in {@link slashParser#instruction}.
+	 * @param ctx the parse tree
+	 */
+	void enterLoopInst(slashParser.LoopInstContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code loopInst}
+	 * labeled alternative in {@link slashParser#instruction}.
+	 * @param ctx the parse tree
+	 */
+	void exitLoopInst(slashParser.LoopInstContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code forInst}
+	 * labeled alternative in {@link slashParser#instruction}.
+	 * @param ctx the parse tree
+	 */
+	void enterForInst(slashParser.ForInstContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code forInst}
+	 * labeled alternative in {@link slashParser#instruction}.
+	 * @param ctx the parse tree
+	 */
+	void exitForInst(slashParser.ForInstContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code codeFrameInst}
 	 * labeled alternative in {@link slashParser#instruction}.
 	 * @param ctx the parse tree
@@ -103,6 +139,66 @@ public interface slashListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCodeFrameInst(slashParser.CodeFrameInstContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code variableInst}
+	 * labeled alternative in {@link slashParser#instruction}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableInst(slashParser.VariableInstContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code variableInst}
+	 * labeled alternative in {@link slashParser#instruction}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableInst(slashParser.VariableInstContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code returnInst}
+	 * labeled alternative in {@link slashParser#instruction}.
+	 * @param ctx the parse tree
+	 */
+	void enterReturnInst(slashParser.ReturnInstContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code returnInst}
+	 * labeled alternative in {@link slashParser#instruction}.
+	 * @param ctx the parse tree
+	 */
+	void exitReturnInst(slashParser.ReturnInstContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code orElseExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterOrElseExpr(slashParser.OrElseExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code orElseExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitOrElseExpr(slashParser.OrElseExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code castExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterCastExpr(slashParser.CastExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code castExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitCastExpr(slashParser.CastExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code singleOperationExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterSingleOperationExpr(slashParser.SingleOperationExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code singleOperationExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitSingleOperationExpr(slashParser.SingleOperationExprContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code literalExpr}
 	 * labeled alternative in {@link slashParser#expr}.
@@ -116,6 +212,18 @@ public interface slashListener extends ParseTreeListener {
 	 */
 	void exitLiteralExpr(slashParser.LiteralExprContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code nullCheckExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterNullCheckExpr(slashParser.NullCheckExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code nullCheckExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitNullCheckExpr(slashParser.NullCheckExprContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code callExpr}
 	 * labeled alternative in {@link slashParser#expr}.
 	 * @param ctx the parse tree
@@ -127,6 +235,42 @@ public interface slashListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCallExpr(slashParser.CallExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code rangeExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterRangeExpr(slashParser.RangeExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code rangeExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitRangeExpr(slashParser.RangeExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code accessExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterAccessExpr(slashParser.AccessExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code accessExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitAccessExpr(slashParser.AccessExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code idExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterIdExpr(slashParser.IdExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code idExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitIdExpr(slashParser.IdExprContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code encapsulateExpr}
 	 * labeled alternative in {@link slashParser#expr}.
@@ -140,17 +284,49 @@ public interface slashListener extends ParseTreeListener {
 	 */
 	void exitEncapsulateExpr(slashParser.EncapsulateExprContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code idExpr}
+	 * Enter a parse tree produced by the {@code biOperationExpr}
 	 * labeled alternative in {@link slashParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterIdExpr(slashParser.IdExprContext ctx);
+	void enterBiOperationExpr(slashParser.BiOperationExprContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code idExpr}
+	 * Exit a parse tree produced by the {@code biOperationExpr}
 	 * labeled alternative in {@link slashParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitIdExpr(slashParser.IdExprContext ctx);
+	void exitBiOperationExpr(slashParser.BiOperationExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code accessArrExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterAccessArrExpr(slashParser.AccessArrExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code accessArrExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitAccessArrExpr(slashParser.AccessArrExprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link slashParser#biOperation}.
+	 * @param ctx the parse tree
+	 */
+	void enterBiOperation(slashParser.BiOperationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link slashParser#biOperation}.
+	 * @param ctx the parse tree
+	 */
+	void exitBiOperation(slashParser.BiOperationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link slashParser#singleOperation}.
+	 * @param ctx the parse tree
+	 */
+	void enterSingleOperation(slashParser.SingleOperationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link slashParser#singleOperation}.
+	 * @param ctx the parse tree
+	 */
+	void exitSingleOperation(slashParser.SingleOperationContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code intLiteral}
 	 * labeled alternative in {@link slashParser#literal}.

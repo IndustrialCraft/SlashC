@@ -1,4 +1,4 @@
-// Generated from /home/mmm/Plocha/IndustrialCraft/SlashC/src/main/antlr/slash.g4 by ANTLR 4.10.1
+// Generated from /home/mmm/Desktop/IndustrialCraft/SlashC/src/main/antlr/slash.g4 by ANTLR 4.10.1
 package com.github.industrialcraft.slashc.antlr;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -19,25 +19,27 @@ public class slashParser extends Parser {
 	public static final int
 		COMMENT=1, LINE_COMMENT=2, WS=3, NL=4, FLOAT=5, INT=6, STRING=7, CLASS=8, 
 		PACKAGE=9, LOOP=10, WHILE=11, FOR=12, IF=13, ELSE=14, BREAK=15, CONTINUE=16, 
-		IMPORT=17, AUTO=18, STATIC=19, PUBLIC=20, PROTECTED=21, PRIVATE=22, RANGE=23, 
-		ARROW=24, CAST=25, DYN_CAST=26, LPAREN=27, RPAREN=28, LBRACK=29, RBRACK=30, 
-		LBRACE=31, RBRACE=32, CMP_LESS=33, CMP_LESS_EQ=34, CMP_GREA=35, CMP_GREA_EQ=36, 
-		LSHIFT=37, RSHIFT=38, EQUALS=39, SAME=40, NOT_EQUALS=41, NOT_SAME=42, 
-		PLUS=43, DPLUS=44, MINUS=45, DMINUS=46, MUL=47, DIV=48, MOD=49, AND=50, 
-		OR=51, DAND=52, DOR=53, XOR=54, NOT=55, TILDE=56, DOT=57, HASH=58, QMARK=59, 
-		DCOLON=60, COLON=61, SEMI=62, COMMA=63, ASSIGN=64, MUL_ASSIGN=65, DIV_ASSIGN=66, 
-		MOD_ASSIGN=67, PLUS_ASSIGN=68, MINUS_ASSIGN=69, LSHIFT_ASSIGN=70, RSHIFT_ASSIGN=71, 
-		AND_ASSIGN=72, OR_ASSIGN=73, XOR_ASSIGN=74, ID=75;
+		IMPORT=17, AUTO=18, STATIC=19, RETURN=20, PUBLIC=21, PROTECTED=22, PRIVATE=23, 
+		RANGE=24, ARROW=25, CAST=26, DYN_CAST=27, LPAREN=28, RPAREN=29, LBRACK=30, 
+		RBRACK=31, LBRACE=32, RBRACE=33, CMP_LESS=34, CMP_LESS_EQ=35, CMP_GREA=36, 
+		CMP_GREA_EQ=37, LSHIFT=38, RSHIFT=39, EQUALS=40, SAME=41, NOT_EQUALS=42, 
+		NOT_SAME=43, PLUS=44, DPLUS=45, MINUS=46, DMINUS=47, MUL=48, DIV=49, MOD=50, 
+		AND=51, OR=52, DAND=53, DOR=54, XOR=55, NOT=56, TILDE=57, DOT=58, HASH=59, 
+		QMARK=60, DCOLON=61, COLON=62, SEMI=63, COMMA=64, ASSIGN=65, MUL_ASSIGN=66, 
+		DIV_ASSIGN=67, MOD_ASSIGN=68, PLUS_ASSIGN=69, MINUS_ASSIGN=70, LSHIFT_ASSIGN=71, 
+		RSHIFT_ASSIGN=72, AND_ASSIGN=73, OR_ASSIGN=74, XOR_ASSIGN=75, ID=76;
 	public static final int
 		RULE_source_file = 0, RULE_class_member = 1, RULE_class_attribute = 2, 
 		RULE_class_method = 3, RULE_method_param = 4, RULE_code_frame = 5, RULE_instruction = 6, 
-		RULE_expr = 7, RULE_literal = 8, RULE_type = 9, RULE_visibility = 10, 
-		RULE_package_statement = 11, RULE_import_statement = 12, RULE_dot_id = 13;
+		RULE_expr = 7, RULE_biOperation = 8, RULE_singleOperation = 9, RULE_literal = 10, 
+		RULE_type = 11, RULE_visibility = 12, RULE_package_statement = 13, RULE_import_statement = 14, 
+		RULE_dot_id = 15;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"source_file", "class_member", "class_attribute", "class_method", "method_param", 
-			"code_frame", "instruction", "expr", "literal", "type", "visibility", 
-			"package_statement", "import_statement", "dot_id"
+			"code_frame", "instruction", "expr", "biOperation", "singleOperation", 
+			"literal", "type", "visibility", "package_statement", "import_statement", 
+			"dot_id"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -46,12 +48,12 @@ public class slashParser extends Parser {
 		return new String[] {
 			null, null, null, null, null, null, null, null, "'class'", "'package'", 
 			"'loop'", "'while'", "'for'", "'if'", "'else'", "'break'", "'continue'", 
-			"'import '", "'auto'", "'static'", "'public'", "'protected'", "'private'", 
-			"'..'", "'->'", "'=>'", "'=?>'", "'('", "')'", "'['", "']'", "'{'", "'}'", 
-			"'<'", "'<='", "'>'", "'>='", "'<<'", "'>>'", "'=='", "'==='", "'!='", 
-			"'!=='", "'+'", "'++'", "'-'", "'--'", "'*'", "'/'", "'%'", "'&'", "'|'", 
-			"'&&'", "'||'", "'^'", "'!'", "'~'", "'.'", "'#'", "'?'", "'::'", "':'", 
-			"';'", "','", "'='", "'*='", "'/='", "'%='", "'+='", "'-='", "'<<='", 
+			"'import '", "'auto'", "'static'", "'return'", "'public'", "'protected'", 
+			"'private'", "'..'", "'->'", "'=>'", "'=?>'", "'('", "')'", "'['", "']'", 
+			"'{'", "'}'", "'<'", "'<='", "'>'", "'>='", "'<<'", "'>>'", "'=='", "'==='", 
+			"'!='", "'!=='", "'+'", "'++'", "'-'", "'--'", "'*'", "'/'", "'%'", "'&'", 
+			"'|'", "'&&'", "'||'", "'^'", "'!'", "'~'", "'.'", "'#'", "'?'", "'::'", 
+			"':'", "';'", "','", "'='", "'*='", "'/='", "'%='", "'+='", "'-='", "'<<='", 
 			"'>>='", "'&='", "'|='", "'^='"
 		};
 	}
@@ -60,8 +62,8 @@ public class slashParser extends Parser {
 		return new String[] {
 			null, "COMMENT", "LINE_COMMENT", "WS", "NL", "FLOAT", "INT", "STRING", 
 			"CLASS", "PACKAGE", "LOOP", "WHILE", "FOR", "IF", "ELSE", "BREAK", "CONTINUE", 
-			"IMPORT", "AUTO", "STATIC", "PUBLIC", "PROTECTED", "PRIVATE", "RANGE", 
-			"ARROW", "CAST", "DYN_CAST", "LPAREN", "RPAREN", "LBRACK", "RBRACK", 
+			"IMPORT", "AUTO", "STATIC", "RETURN", "PUBLIC", "PROTECTED", "PRIVATE", 
+			"RANGE", "ARROW", "CAST", "DYN_CAST", "LPAREN", "RPAREN", "LBRACK", "RBRACK", 
 			"LBRACE", "RBRACE", "CMP_LESS", "CMP_LESS_EQ", "CMP_GREA", "CMP_GREA_EQ", 
 			"LSHIFT", "RSHIFT", "EQUALS", "SAME", "NOT_EQUALS", "NOT_SAME", "PLUS", 
 			"DPLUS", "MINUS", "DMINUS", "MUL", "DIV", "MOD", "AND", "OR", "DAND", 
@@ -168,43 +170,43 @@ public class slashParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(28);
-			package_statement();
 			setState(32);
+			package_statement();
+			setState(36);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==IMPORT) {
 				{
 				{
-				setState(29);
+				setState(33);
 				import_statement();
 				}
 				}
-				setState(34);
+				setState(38);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(35);
+			setState(39);
 			match(CLASS);
-			setState(36);
+			setState(40);
 			match(ID);
-			setState(37);
-			match(LBRACE);
 			setState(41);
+			match(LBRACE);
+			setState(45);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (((((_la - 18)) & ~0x3f) == 0 && ((1L << (_la - 18)) & ((1L << (AUTO - 18)) | (1L << (STATIC - 18)) | (1L << (PUBLIC - 18)) | (1L << (PROTECTED - 18)) | (1L << (PRIVATE - 18)) | (1L << (ID - 18)))) != 0)) {
 				{
 				{
-				setState(38);
+				setState(42);
 				class_member();
 				}
 				}
-				setState(43);
+				setState(47);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(44);
+			setState(48);
 			match(RBRACE);
 			}
 		}
@@ -249,20 +251,20 @@ public class slashParser extends Parser {
 		Class_memberContext _localctx = new Class_memberContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_class_member);
 		try {
-			setState(48);
+			setState(52);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(46);
+				setState(50);
 				class_attribute();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(47);
+				setState(51);
 				class_method();
 				}
 				break;
@@ -314,21 +316,21 @@ public class slashParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(51);
+			setState(55);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << PUBLIC) | (1L << PROTECTED) | (1L << PRIVATE))) != 0)) {
 				{
-				setState(50);
+				setState(54);
 				visibility();
 				}
 			}
 
-			setState(53);
+			setState(57);
 			type();
-			setState(54);
+			setState(58);
 			match(ID);
-			setState(55);
+			setState(59);
 			match(SEMI);
 			}
 		}
@@ -393,61 +395,61 @@ public class slashParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(58);
+			setState(62);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << PUBLIC) | (1L << PROTECTED) | (1L << PRIVATE))) != 0)) {
 				{
-				setState(57);
+				setState(61);
 				visibility();
 				}
 			}
 
-			setState(61);
+			setState(65);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==STATIC) {
 				{
-				setState(60);
+				setState(64);
 				match(STATIC);
 				}
 			}
 
-			setState(63);
+			setState(67);
 			type();
-			setState(64);
+			setState(68);
 			match(ID);
-			setState(65);
+			setState(69);
 			match(LPAREN);
-			setState(74);
+			setState(78);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==AUTO || _la==ID) {
 				{
-				setState(66);
+				setState(70);
 				method_param();
-				setState(71);
+				setState(75);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(67);
+					setState(71);
 					match(COMMA);
-					setState(68);
+					setState(72);
 					method_param();
 					}
 					}
-					setState(73);
+					setState(77);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
 				}
 			}
 
-			setState(76);
+			setState(80);
 			match(RPAREN);
-			setState(77);
+			setState(81);
 			code_frame();
 			}
 		}
@@ -492,9 +494,9 @@ public class slashParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(79);
+			setState(83);
 			type();
-			setState(80);
+			setState(84);
 			match(ID);
 			}
 		}
@@ -544,23 +546,23 @@ public class slashParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(82);
-			match(LBRACE);
 			setState(86);
+			match(LBRACE);
+			setState(90);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << FLOAT) | (1L << INT) | (1L << STRING) | (1L << IF) | (1L << LPAREN) | (1L << LBRACE))) != 0) || _la==ID) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << FLOAT) | (1L << INT) | (1L << STRING) | (1L << LOOP) | (1L << WHILE) | (1L << FOR) | (1L << IF) | (1L << AUTO) | (1L << RETURN) | (1L << LPAREN) | (1L << LBRACE) | (1L << MINUS) | (1L << NOT) | (1L << TILDE))) != 0) || _la==ID) {
 				{
 				{
-				setState(83);
+				setState(87);
 				instruction();
 				}
 				}
-				setState(88);
+				setState(92);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(89);
+			setState(93);
 			match(RBRACE);
 			}
 		}
@@ -584,6 +586,127 @@ public class slashParser extends Parser {
 		public InstructionContext() { }
 		public void copyFrom(InstructionContext ctx) {
 			super.copyFrom(ctx);
+		}
+	}
+	public static class VariableInstContext extends InstructionContext {
+		public TerminalNode ID() { return getToken(slashParser.ID, 0); }
+		public TerminalNode SEMI() { return getToken(slashParser.SEMI, 0); }
+		public TypeContext type() {
+			return getRuleContext(TypeContext.class,0);
+		}
+		public TerminalNode ASSIGN() { return getToken(slashParser.ASSIGN, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public VariableInstContext(InstructionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).enterVariableInst(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).exitVariableInst(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof slashVisitor ) return ((slashVisitor<? extends T>)visitor).visitVariableInst(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ForInstContext extends InstructionContext {
+		public TerminalNode FOR() { return getToken(slashParser.FOR, 0); }
+		public TerminalNode LPAREN() { return getToken(slashParser.LPAREN, 0); }
+		public TypeContext type() {
+			return getRuleContext(TypeContext.class,0);
+		}
+		public TerminalNode ID() { return getToken(slashParser.ID, 0); }
+		public TerminalNode COLON() { return getToken(slashParser.COLON, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public TerminalNode RPAREN() { return getToken(slashParser.RPAREN, 0); }
+		public InstructionContext instruction() {
+			return getRuleContext(InstructionContext.class,0);
+		}
+		public ForInstContext(InstructionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).enterForInst(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).exitForInst(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof slashVisitor ) return ((slashVisitor<? extends T>)visitor).visitForInst(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class WhileInstContext extends InstructionContext {
+		public TerminalNode WHILE() { return getToken(slashParser.WHILE, 0); }
+		public TerminalNode LPAREN() { return getToken(slashParser.LPAREN, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public TerminalNode RPAREN() { return getToken(slashParser.RPAREN, 0); }
+		public InstructionContext instruction() {
+			return getRuleContext(InstructionContext.class,0);
+		}
+		public WhileInstContext(InstructionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).enterWhileInst(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).exitWhileInst(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof slashVisitor ) return ((slashVisitor<? extends T>)visitor).visitWhileInst(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class LoopInstContext extends InstructionContext {
+		public TerminalNode LOOP() { return getToken(slashParser.LOOP, 0); }
+		public InstructionContext instruction() {
+			return getRuleContext(InstructionContext.class,0);
+		}
+		public LoopInstContext(InstructionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).enterLoopInst(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).exitLoopInst(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof slashVisitor ) return ((slashVisitor<? extends T>)visitor).visitLoopInst(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ReturnInstContext extends InstructionContext {
+		public TerminalNode RETURN() { return getToken(slashParser.RETURN, 0); }
+		public TerminalNode SEMI() { return getToken(slashParser.SEMI, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public ReturnInstContext(InstructionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).enterReturnInst(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).exitReturnInst(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof slashVisitor ) return ((slashVisitor<? extends T>)visitor).visitReturnInst(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	public static class CodeFrameInstContext extends InstructionContext {
@@ -654,50 +777,145 @@ public class slashParser extends Parser {
 	public final InstructionContext instruction() throws RecognitionException {
 		InstructionContext _localctx = new InstructionContext(_ctx, getState());
 		enterRule(_localctx, 12, RULE_instruction);
+		int _la;
 		try {
-			setState(101);
+			setState(136);
 			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case FLOAT:
-			case INT:
-			case STRING:
-			case LPAREN:
-			case ID:
+			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
+			case 1:
 				_localctx = new ExpressionInstContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(91);
+				setState(95);
 				expr(0);
-				setState(92);
+				setState(96);
 				match(SEMI);
 				}
 				break;
-			case IF:
+			case 2:
 				_localctx = new IfInstContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(94);
-				match(IF);
-				setState(95);
-				match(LPAREN);
-				setState(96);
-				expr(0);
-				setState(97);
-				match(RPAREN);
 				setState(98);
+				match(IF);
+				setState(99);
+				match(LPAREN);
+				setState(100);
+				expr(0);
+				setState(101);
+				match(RPAREN);
+				setState(102);
 				instruction();
 				}
 				break;
-			case LBRACE:
-				_localctx = new CodeFrameInstContext(_localctx);
+			case 3:
+				_localctx = new WhileInstContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(100);
+				setState(104);
+				match(WHILE);
+				setState(105);
+				match(LPAREN);
+				setState(106);
+				expr(0);
+				setState(107);
+				match(RPAREN);
+				setState(108);
+				instruction();
+				}
+				break;
+			case 4:
+				_localctx = new LoopInstContext(_localctx);
+				enterOuterAlt(_localctx, 4);
+				{
+				setState(110);
+				match(LOOP);
+				setState(111);
+				instruction();
+				}
+				break;
+			case 5:
+				_localctx = new ForInstContext(_localctx);
+				enterOuterAlt(_localctx, 5);
+				{
+				setState(112);
+				match(FOR);
+				setState(113);
+				match(LPAREN);
+				setState(114);
+				type();
+				setState(115);
+				match(ID);
+				setState(116);
+				match(COLON);
+				setState(117);
+				expr(0);
+				setState(118);
+				match(RPAREN);
+				setState(119);
+				instruction();
+				}
+				break;
+			case 6:
+				_localctx = new CodeFrameInstContext(_localctx);
+				enterOuterAlt(_localctx, 6);
+				{
+				setState(121);
 				code_frame();
 				}
 				break;
-			default:
-				throw new NoViableAltException(this);
+			case 7:
+				_localctx = new VariableInstContext(_localctx);
+				enterOuterAlt(_localctx, 7);
+				{
+				setState(123);
+				_errHandler.sync(this);
+				switch ( getInterpreter().adaptivePredict(_input,9,_ctx) ) {
+				case 1:
+					{
+					setState(122);
+					type();
+					}
+					break;
+				}
+				setState(125);
+				match(ID);
+				setState(128);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				if (_la==ASSIGN) {
+					{
+					setState(126);
+					match(ASSIGN);
+					setState(127);
+					expr(0);
+					}
+				}
+
+				setState(130);
+				match(SEMI);
+				}
+				break;
+			case 8:
+				_localctx = new ReturnInstContext(_localctx);
+				enterOuterAlt(_localctx, 8);
+				{
+				setState(131);
+				match(RETURN);
+				setState(133);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << FLOAT) | (1L << INT) | (1L << STRING) | (1L << LPAREN) | (1L << MINUS) | (1L << NOT) | (1L << TILDE))) != 0) || _la==ID) {
+					{
+					setState(132);
+					expr(0);
+					}
+				}
+
+				setState(135);
+				match(SEMI);
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -722,6 +940,77 @@ public class slashParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
+	public static class OrElseExprContext extends ExprContext {
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public TerminalNode QMARK() { return getToken(slashParser.QMARK, 0); }
+		public TerminalNode LPAREN() { return getToken(slashParser.LPAREN, 0); }
+		public TerminalNode RPAREN() { return getToken(slashParser.RPAREN, 0); }
+		public OrElseExprContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).enterOrElseExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).exitOrElseExpr(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof slashVisitor ) return ((slashVisitor<? extends T>)visitor).visitOrElseExpr(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class CastExprContext extends ExprContext {
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public TypeContext type() {
+			return getRuleContext(TypeContext.class,0);
+		}
+		public TerminalNode CAST() { return getToken(slashParser.CAST, 0); }
+		public TerminalNode DYN_CAST() { return getToken(slashParser.DYN_CAST, 0); }
+		public CastExprContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).enterCastExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).exitCastExpr(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof slashVisitor ) return ((slashVisitor<? extends T>)visitor).visitCastExpr(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class SingleOperationExprContext extends ExprContext {
+		public SingleOperationContext singleOperation() {
+			return getRuleContext(SingleOperationContext.class,0);
+		}
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public SingleOperationExprContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).enterSingleOperationExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).exitSingleOperationExpr(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof slashVisitor ) return ((slashVisitor<? extends T>)visitor).visitSingleOperationExpr(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 	public static class LiteralExprContext extends ExprContext {
 		public LiteralContext literal() {
 			return getRuleContext(LiteralContext.class,0);
@@ -741,6 +1030,31 @@ public class slashParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
+	public static class NullCheckExprContext extends ExprContext {
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public TerminalNode NOT() { return getToken(slashParser.NOT, 0); }
+		public TerminalNode LPAREN() { return getToken(slashParser.LPAREN, 0); }
+		public TerminalNode RPAREN() { return getToken(slashParser.RPAREN, 0); }
+		public NullCheckExprContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).enterNullCheckExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).exitNullCheckExpr(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof slashVisitor ) return ((slashVisitor<? extends T>)visitor).visitNullCheckExpr(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 	public static class CallExprContext extends ExprContext {
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
@@ -748,8 +1062,6 @@ public class slashParser extends Parser {
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public TerminalNode DOT() { return getToken(slashParser.DOT, 0); }
-		public TerminalNode ID() { return getToken(slashParser.ID, 0); }
 		public TerminalNode LPAREN() { return getToken(slashParser.LPAREN, 0); }
 		public TerminalNode RPAREN() { return getToken(slashParser.RPAREN, 0); }
 		public List<TerminalNode> COMMA() { return getTokens(slashParser.COMMA); }
@@ -768,6 +1080,68 @@ public class slashParser extends Parser {
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof slashVisitor ) return ((slashVisitor<? extends T>)visitor).visitCallExpr(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class RangeExprContext extends ExprContext {
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public TerminalNode RANGE() { return getToken(slashParser.RANGE, 0); }
+		public RangeExprContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).enterRangeExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).exitRangeExpr(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof slashVisitor ) return ((slashVisitor<? extends T>)visitor).visitRangeExpr(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class AccessExprContext extends ExprContext {
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public TerminalNode DOT() { return getToken(slashParser.DOT, 0); }
+		public TerminalNode ID() { return getToken(slashParser.ID, 0); }
+		public TerminalNode QMARK() { return getToken(slashParser.QMARK, 0); }
+		public AccessExprContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).enterAccessExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).exitAccessExpr(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof slashVisitor ) return ((slashVisitor<? extends T>)visitor).visitAccessExpr(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class IdExprContext extends ExprContext {
+		public TerminalNode ID() { return getToken(slashParser.ID, 0); }
+		public IdExprContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).enterIdExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).exitIdExpr(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof slashVisitor ) return ((slashVisitor<? extends T>)visitor).visitIdExpr(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -792,20 +1166,53 @@ public class slashParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class IdExprContext extends ExprContext {
-		public TerminalNode ID() { return getToken(slashParser.ID, 0); }
-		public IdExprContext(ExprContext ctx) { copyFrom(ctx); }
+	public static class BiOperationExprContext extends ExprContext {
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public BiOperationContext biOperation() {
+			return getRuleContext(BiOperationContext.class,0);
+		}
+		public BiOperationExprContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof slashListener ) ((slashListener)listener).enterIdExpr(this);
+			if ( listener instanceof slashListener ) ((slashListener)listener).enterBiOperationExpr(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof slashListener ) ((slashListener)listener).exitIdExpr(this);
+			if ( listener instanceof slashListener ) ((slashListener)listener).exitBiOperationExpr(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof slashVisitor ) return ((slashVisitor<? extends T>)visitor).visitIdExpr(this);
+			if ( visitor instanceof slashVisitor ) return ((slashVisitor<? extends T>)visitor).visitBiOperationExpr(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class AccessArrExprContext extends ExprContext {
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public TerminalNode LBRACK() { return getToken(slashParser.LBRACK, 0); }
+		public TerminalNode RBRACK() { return getToken(slashParser.RBRACK, 0); }
+		public TerminalNode QMARK() { return getToken(slashParser.QMARK, 0); }
+		public AccessArrExprContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).enterAccessArrExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).exitAccessArrExpr(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof slashVisitor ) return ((slashVisitor<? extends T>)visitor).visitAccessArrExpr(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -826,23 +1233,9 @@ public class slashParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(110);
+			setState(148);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
-			case LPAREN:
-				{
-				_localctx = new EncapsulateExprContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-
-				setState(104);
-				match(LPAREN);
-				setState(105);
-				expr(0);
-				setState(106);
-				match(RPAREN);
-				}
-				break;
 			case FLOAT:
 			case INT:
 			case STRING:
@@ -850,7 +1243,8 @@ public class slashParser extends Parser {
 				_localctx = new LiteralExprContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(108);
+
+				setState(139);
 				literal();
 				}
 				break;
@@ -859,67 +1253,225 @@ public class slashParser extends Parser {
 				_localctx = new IdExprContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(109);
+				setState(140);
 				match(ID);
+				}
+				break;
+			case LPAREN:
+				{
+				_localctx = new EncapsulateExprContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(141);
+				match(LPAREN);
+				setState(142);
+				expr(0);
+				setState(143);
+				match(RPAREN);
+				}
+				break;
+			case MINUS:
+			case NOT:
+			case TILDE:
+				{
+				_localctx = new SingleOperationExprContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(145);
+				singleOperation();
+				setState(146);
+				expr(1);
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(129);
+			setState(203);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,13,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,20,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					{
-					_localctx = new CallExprContext(new ExprContext(_parentctx, _parentState));
-					pushNewRecursionContext(_localctx, _startState, RULE_expr);
-					setState(112);
-					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(113);
-					match(DOT);
-					setState(114);
-					match(ID);
-					setState(115);
-					match(LPAREN);
-					setState(124);
+					setState(201);
 					_errHandler.sync(this);
-					_la = _input.LA(1);
-					if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << FLOAT) | (1L << INT) | (1L << STRING) | (1L << LPAREN))) != 0) || _la==ID) {
+					switch ( getInterpreter().adaptivePredict(_input,19,_ctx) ) {
+					case 1:
 						{
-						setState(116);
-						expr(0);
-						setState(121);
+						_localctx = new RangeExprContext(new ExprContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(150);
+						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
+						setState(151);
+						match(RANGE);
+						setState(152);
+						expr(4);
+						}
+						break;
+					case 2:
+						{
+						_localctx = new BiOperationExprContext(new ExprContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(153);
+						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
+						setState(154);
+						biOperation();
+						setState(155);
+						expr(3);
+						}
+						break;
+					case 3:
+						{
+						_localctx = new CastExprContext(new ExprContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(157);
+						if (!(precpred(_ctx, 12))) throw new FailedPredicateException(this, "precpred(_ctx, 12)");
+						setState(158);
+						_la = _input.LA(1);
+						if ( !(_la==CAST || _la==DYN_CAST) ) {
+						_errHandler.recoverInline(this);
+						}
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
+						setState(159);
+						type();
+						}
+						break;
+					case 4:
+						{
+						_localctx = new AccessExprContext(new ExprContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(160);
+						if (!(precpred(_ctx, 9))) throw new FailedPredicateException(this, "precpred(_ctx, 9)");
+						setState(161);
+						match(DOT);
+						setState(163);
 						_errHandler.sync(this);
 						_la = _input.LA(1);
-						while (_la==COMMA) {
+						if (_la==QMARK) {
 							{
+							setState(162);
+							match(QMARK);
+							}
+						}
+
+						setState(165);
+						match(ID);
+						}
+						break;
+					case 5:
+						{
+						_localctx = new AccessArrExprContext(new ExprContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(166);
+						if (!(precpred(_ctx, 8))) throw new FailedPredicateException(this, "precpred(_ctx, 8)");
+						setState(167);
+						match(LBRACK);
+						setState(169);
+						_errHandler.sync(this);
+						_la = _input.LA(1);
+						if (_la==QMARK) {
 							{
-							setState(117);
-							match(COMMA);
-							setState(118);
+							setState(168);
+							match(QMARK);
+							}
+						}
+
+						setState(171);
+						expr(0);
+						setState(172);
+						match(RBRACK);
+						}
+						break;
+					case 6:
+						{
+						_localctx = new CallExprContext(new ExprContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(174);
+						if (!(precpred(_ctx, 7))) throw new FailedPredicateException(this, "precpred(_ctx, 7)");
+						setState(175);
+						match(LPAREN);
+						setState(184);
+						_errHandler.sync(this);
+						_la = _input.LA(1);
+						if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << FLOAT) | (1L << INT) | (1L << STRING) | (1L << LPAREN) | (1L << MINUS) | (1L << NOT) | (1L << TILDE))) != 0) || _la==ID) {
+							{
+							setState(176);
 							expr(0);
-							}
-							}
-							setState(123);
+							setState(181);
 							_errHandler.sync(this);
 							_la = _input.LA(1);
+							while (_la==COMMA) {
+								{
+								{
+								setState(177);
+								match(COMMA);
+								setState(178);
+								expr(0);
+								}
+								}
+								setState(183);
+								_errHandler.sync(this);
+								_la = _input.LA(1);
+							}
+							}
 						}
-						}
-					}
 
-					setState(126);
-					match(RPAREN);
+						setState(186);
+						match(RPAREN);
+						}
+						break;
+					case 7:
+						{
+						_localctx = new OrElseExprContext(new ExprContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(187);
+						if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");
+						setState(188);
+						match(QMARK);
+						setState(189);
+						match(LPAREN);
+						setState(190);
+						expr(0);
+						setState(191);
+						match(RPAREN);
+						}
+						break;
+					case 8:
+						{
+						_localctx = new NullCheckExprContext(new ExprContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(193);
+						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
+						setState(194);
+						match(NOT);
+						setState(199);
+						_errHandler.sync(this);
+						switch ( getInterpreter().adaptivePredict(_input,18,_ctx) ) {
+						case 1:
+							{
+							setState(195);
+							match(LPAREN);
+							setState(196);
+							expr(0);
+							setState(197);
+							match(RPAREN);
+							}
+							break;
+						}
+						}
+						break;
 					}
 					} 
 				}
-				setState(131);
+				setState(205);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,13,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,20,_ctx);
 			}
 			}
 		}
@@ -930,6 +1482,129 @@ public class slashParser extends Parser {
 		}
 		finally {
 			unrollRecursionContexts(_parentctx);
+		}
+		return _localctx;
+	}
+
+	public static class BiOperationContext extends ParserRuleContext {
+		public TerminalNode PLUS() { return getToken(slashParser.PLUS, 0); }
+		public TerminalNode MINUS() { return getToken(slashParser.MINUS, 0); }
+		public TerminalNode MUL() { return getToken(slashParser.MUL, 0); }
+		public TerminalNode DIV() { return getToken(slashParser.DIV, 0); }
+		public TerminalNode MOD() { return getToken(slashParser.MOD, 0); }
+		public TerminalNode CMP_GREA() { return getToken(slashParser.CMP_GREA, 0); }
+		public TerminalNode CMP_GREA_EQ() { return getToken(slashParser.CMP_GREA_EQ, 0); }
+		public TerminalNode CMP_LESS() { return getToken(slashParser.CMP_LESS, 0); }
+		public TerminalNode CMP_LESS_EQ() { return getToken(slashParser.CMP_LESS_EQ, 0); }
+		public TerminalNode EQUALS() { return getToken(slashParser.EQUALS, 0); }
+		public TerminalNode NOT_EQUALS() { return getToken(slashParser.NOT_EQUALS, 0); }
+		public TerminalNode SAME() { return getToken(slashParser.SAME, 0); }
+		public TerminalNode NOT_SAME() { return getToken(slashParser.NOT_SAME, 0); }
+		public TerminalNode LSHIFT() { return getToken(slashParser.LSHIFT, 0); }
+		public TerminalNode RSHIFT() { return getToken(slashParser.RSHIFT, 0); }
+		public TerminalNode AND() { return getToken(slashParser.AND, 0); }
+		public TerminalNode OR() { return getToken(slashParser.OR, 0); }
+		public TerminalNode DAND() { return getToken(slashParser.DAND, 0); }
+		public TerminalNode DOR() { return getToken(slashParser.DOR, 0); }
+		public TerminalNode XOR() { return getToken(slashParser.XOR, 0); }
+		public BiOperationContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_biOperation; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).enterBiOperation(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).exitBiOperation(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof slashVisitor ) return ((slashVisitor<? extends T>)visitor).visitBiOperation(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final BiOperationContext biOperation() throws RecognitionException {
+		BiOperationContext _localctx = new BiOperationContext(_ctx, getState());
+		enterRule(_localctx, 16, RULE_biOperation);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(206);
+			_la = _input.LA(1);
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << CMP_LESS) | (1L << CMP_LESS_EQ) | (1L << CMP_GREA) | (1L << CMP_GREA_EQ) | (1L << LSHIFT) | (1L << RSHIFT) | (1L << EQUALS) | (1L << SAME) | (1L << NOT_EQUALS) | (1L << NOT_SAME) | (1L << PLUS) | (1L << MINUS) | (1L << MUL) | (1L << DIV) | (1L << MOD) | (1L << AND) | (1L << OR) | (1L << DAND) | (1L << DOR) | (1L << XOR))) != 0)) ) {
+			_errHandler.recoverInline(this);
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class SingleOperationContext extends ParserRuleContext {
+		public TerminalNode MINUS() { return getToken(slashParser.MINUS, 0); }
+		public TerminalNode NOT() { return getToken(slashParser.NOT, 0); }
+		public TerminalNode TILDE() { return getToken(slashParser.TILDE, 0); }
+		public SingleOperationContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_singleOperation; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).enterSingleOperation(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof slashListener ) ((slashListener)listener).exitSingleOperation(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof slashVisitor ) return ((slashVisitor<? extends T>)visitor).visitSingleOperation(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final SingleOperationContext singleOperation() throws RecognitionException {
+		SingleOperationContext _localctx = new SingleOperationContext(_ctx, getState());
+		enterRule(_localctx, 18, RULE_singleOperation);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(208);
+			_la = _input.LA(1);
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MINUS) | (1L << NOT) | (1L << TILDE))) != 0)) ) {
+			_errHandler.recoverInline(this);
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
 		}
 		return _localctx;
 	}
@@ -999,16 +1674,16 @@ public class slashParser extends Parser {
 
 	public final LiteralContext literal() throws RecognitionException {
 		LiteralContext _localctx = new LiteralContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_literal);
+		enterRule(_localctx, 20, RULE_literal);
 		try {
-			setState(135);
+			setState(213);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case INT:
 				_localctx = new IntLiteralContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(132);
+				setState(210);
 				match(INT);
 				}
 				break;
@@ -1016,7 +1691,7 @@ public class slashParser extends Parser {
 				_localctx = new FloatLiteralContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(133);
+				setState(211);
 				match(FLOAT);
 				}
 				break;
@@ -1024,7 +1699,7 @@ public class slashParser extends Parser {
 				_localctx = new StringLiteralContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(134);
+				setState(212);
 				match(STRING);
 				}
 				break;
@@ -1071,49 +1746,48 @@ public class slashParser extends Parser {
 
 	public final TypeContext type() throws RecognitionException {
 		TypeContext _localctx = new TypeContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_type);
-		int _la;
+		enterRule(_localctx, 22, RULE_type);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(139);
+			setState(217);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case ID:
 				{
-				setState(137);
+				setState(215);
 				dot_id();
 				}
 				break;
 			case AUTO:
 				{
-				setState(138);
+				setState(216);
 				match(AUTO);
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(142);
+			setState(220);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==QMARK) {
+			switch ( getInterpreter().adaptivePredict(_input,23,_ctx) ) {
+			case 1:
 				{
-				setState(141);
+				setState(219);
 				match(QMARK);
 				}
+				break;
 			}
-
-			setState(145);
+			setState(223);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==HASH) {
+			switch ( getInterpreter().adaptivePredict(_input,24,_ctx) ) {
+			case 1:
 				{
-				setState(144);
+				setState(222);
 				match(HASH);
 				}
+				break;
 			}
-
 			}
 		}
 		catch (RecognitionException re) {
@@ -1152,12 +1826,12 @@ public class slashParser extends Parser {
 
 	public final VisibilityContext visibility() throws RecognitionException {
 		VisibilityContext _localctx = new VisibilityContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_visibility);
+		enterRule(_localctx, 24, RULE_visibility);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(147);
+			setState(225);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << PUBLIC) | (1L << PROTECTED) | (1L << PRIVATE))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -1207,15 +1881,15 @@ public class slashParser extends Parser {
 
 	public final Package_statementContext package_statement() throws RecognitionException {
 		Package_statementContext _localctx = new Package_statementContext(_ctx, getState());
-		enterRule(_localctx, 22, RULE_package_statement);
+		enterRule(_localctx, 26, RULE_package_statement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(149);
+			setState(227);
 			match(PACKAGE);
-			setState(150);
+			setState(228);
 			dot_id();
-			setState(151);
+			setState(229);
 			match(SEMI);
 			}
 		}
@@ -1257,15 +1931,15 @@ public class slashParser extends Parser {
 
 	public final Import_statementContext import_statement() throws RecognitionException {
 		Import_statementContext _localctx = new Import_statementContext(_ctx, getState());
-		enterRule(_localctx, 24, RULE_import_statement);
+		enterRule(_localctx, 28, RULE_import_statement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(153);
+			setState(231);
 			match(IMPORT);
-			setState(154);
+			setState(232);
 			dot_id();
-			setState(155);
+			setState(233);
 			match(SEMI);
 			}
 		}
@@ -1310,28 +1984,30 @@ public class slashParser extends Parser {
 
 	public final Dot_idContext dot_id() throws RecognitionException {
 		Dot_idContext _localctx = new Dot_idContext(_ctx, getState());
-		enterRule(_localctx, 26, RULE_dot_id);
-		int _la;
+		enterRule(_localctx, 30, RULE_dot_id);
 		try {
+			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(157);
+			setState(235);
 			match(ID);
-			setState(162);
+			setState(240);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==DOT) {
-				{
-				{
-				setState(158);
-				match(DOT);
-				setState(159);
-				match(ID);
+			_alt = getInterpreter().adaptivePredict(_input,25,_ctx);
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1 ) {
+					{
+					{
+					setState(236);
+					match(DOT);
+					setState(237);
+					match(ID);
+					}
+					} 
 				}
-				}
-				setState(164);
+				setState(242);
 				_errHandler.sync(this);
-				_la = _input.LA(1);
+				_alt = getInterpreter().adaptivePredict(_input,25,_ctx);
 			}
 			}
 		}
@@ -1356,109 +2032,185 @@ public class slashParser extends Parser {
 	private boolean expr_sempred(ExprContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
-			return precpred(_ctx, 1);
+			return precpred(_ctx, 3);
+		case 1:
+			return precpred(_ctx, 2);
+		case 2:
+			return precpred(_ctx, 12);
+		case 3:
+			return precpred(_ctx, 9);
+		case 4:
+			return precpred(_ctx, 8);
+		case 5:
+			return precpred(_ctx, 7);
+		case 6:
+			return precpred(_ctx, 6);
+		case 7:
+			return precpred(_ctx, 5);
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001K\u00a6\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0004\u0001L\u00f4\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
 		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002"+
 		"\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0002\u000b\u0007\u000b\u0002"+
-		"\f\u0007\f\u0002\r\u0007\r\u0001\u0000\u0001\u0000\u0005\u0000\u001f\b"+
-		"\u0000\n\u0000\f\u0000\"\t\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001"+
-		"\u0000\u0005\u0000(\b\u0000\n\u0000\f\u0000+\t\u0000\u0001\u0000\u0001"+
-		"\u0000\u0001\u0001\u0001\u0001\u0003\u00011\b\u0001\u0001\u0002\u0003"+
-		"\u00024\b\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001"+
-		"\u0003\u0003\u0003;\b\u0003\u0001\u0003\u0003\u0003>\b\u0003\u0001\u0003"+
-		"\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0005\u0003"+
-		"F\b\u0003\n\u0003\f\u0003I\t\u0003\u0003\u0003K\b\u0003\u0001\u0003\u0001"+
-		"\u0003\u0001\u0003\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0005\u0001"+
-		"\u0005\u0005\u0005U\b\u0005\n\u0005\f\u0005X\t\u0005\u0001\u0005\u0001"+
-		"\u0005\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001"+
-		"\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0003\u0006f\b"+
-		"\u0006\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001"+
-		"\u0007\u0001\u0007\u0003\u0007o\b\u0007\u0001\u0007\u0001\u0007\u0001"+
-		"\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0005\u0007x\b"+
-		"\u0007\n\u0007\f\u0007{\t\u0007\u0003\u0007}\b\u0007\u0001\u0007\u0005"+
-		"\u0007\u0080\b\u0007\n\u0007\f\u0007\u0083\t\u0007\u0001\b\u0001\b\u0001"+
-		"\b\u0003\b\u0088\b\b\u0001\t\u0001\t\u0003\t\u008c\b\t\u0001\t\u0003\t"+
-		"\u008f\b\t\u0001\t\u0003\t\u0092\b\t\u0001\n\u0001\n\u0001\u000b\u0001"+
-		"\u000b\u0001\u000b\u0001\u000b\u0001\f\u0001\f\u0001\f\u0001\f\u0001\r"+
-		"\u0001\r\u0001\r\u0005\r\u00a1\b\r\n\r\f\r\u00a4\t\r\u0001\r\u0000\u0001"+
-		"\u000e\u000e\u0000\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0016"+
-		"\u0018\u001a\u0000\u0001\u0001\u0000\u0014\u0016\u00ad\u0000\u001c\u0001"+
-		"\u0000\u0000\u0000\u00020\u0001\u0000\u0000\u0000\u00043\u0001\u0000\u0000"+
-		"\u0000\u0006:\u0001\u0000\u0000\u0000\bO\u0001\u0000\u0000\u0000\nR\u0001"+
-		"\u0000\u0000\u0000\fe\u0001\u0000\u0000\u0000\u000en\u0001\u0000\u0000"+
-		"\u0000\u0010\u0087\u0001\u0000\u0000\u0000\u0012\u008b\u0001\u0000\u0000"+
-		"\u0000\u0014\u0093\u0001\u0000\u0000\u0000\u0016\u0095\u0001\u0000\u0000"+
-		"\u0000\u0018\u0099\u0001\u0000\u0000\u0000\u001a\u009d\u0001\u0000\u0000"+
-		"\u0000\u001c \u0003\u0016\u000b\u0000\u001d\u001f\u0003\u0018\f\u0000"+
-		"\u001e\u001d\u0001\u0000\u0000\u0000\u001f\"\u0001\u0000\u0000\u0000 "+
-		"\u001e\u0001\u0000\u0000\u0000 !\u0001\u0000\u0000\u0000!#\u0001\u0000"+
-		"\u0000\u0000\" \u0001\u0000\u0000\u0000#$\u0005\b\u0000\u0000$%\u0005"+
-		"K\u0000\u0000%)\u0005\u001f\u0000\u0000&(\u0003\u0002\u0001\u0000\'&\u0001"+
-		"\u0000\u0000\u0000(+\u0001\u0000\u0000\u0000)\'\u0001\u0000\u0000\u0000"+
-		")*\u0001\u0000\u0000\u0000*,\u0001\u0000\u0000\u0000+)\u0001\u0000\u0000"+
-		"\u0000,-\u0005 \u0000\u0000-\u0001\u0001\u0000\u0000\u0000.1\u0003\u0004"+
-		"\u0002\u0000/1\u0003\u0006\u0003\u00000.\u0001\u0000\u0000\u00000/\u0001"+
-		"\u0000\u0000\u00001\u0003\u0001\u0000\u0000\u000024\u0003\u0014\n\u0000"+
-		"32\u0001\u0000\u0000\u000034\u0001\u0000\u0000\u000045\u0001\u0000\u0000"+
-		"\u000056\u0003\u0012\t\u000067\u0005K\u0000\u000078\u0005>\u0000\u0000"+
-		"8\u0005\u0001\u0000\u0000\u00009;\u0003\u0014\n\u0000:9\u0001\u0000\u0000"+
-		"\u0000:;\u0001\u0000\u0000\u0000;=\u0001\u0000\u0000\u0000<>\u0005\u0013"+
-		"\u0000\u0000=<\u0001\u0000\u0000\u0000=>\u0001\u0000\u0000\u0000>?\u0001"+
-		"\u0000\u0000\u0000?@\u0003\u0012\t\u0000@A\u0005K\u0000\u0000AJ\u0005"+
-		"\u001b\u0000\u0000BG\u0003\b\u0004\u0000CD\u0005?\u0000\u0000DF\u0003"+
-		"\b\u0004\u0000EC\u0001\u0000\u0000\u0000FI\u0001\u0000\u0000\u0000GE\u0001"+
-		"\u0000\u0000\u0000GH\u0001\u0000\u0000\u0000HK\u0001\u0000\u0000\u0000"+
-		"IG\u0001\u0000\u0000\u0000JB\u0001\u0000\u0000\u0000JK\u0001\u0000\u0000"+
-		"\u0000KL\u0001\u0000\u0000\u0000LM\u0005\u001c\u0000\u0000MN\u0003\n\u0005"+
-		"\u0000N\u0007\u0001\u0000\u0000\u0000OP\u0003\u0012\t\u0000PQ\u0005K\u0000"+
-		"\u0000Q\t\u0001\u0000\u0000\u0000RV\u0005\u001f\u0000\u0000SU\u0003\f"+
-		"\u0006\u0000TS\u0001\u0000\u0000\u0000UX\u0001\u0000\u0000\u0000VT\u0001"+
-		"\u0000\u0000\u0000VW\u0001\u0000\u0000\u0000WY\u0001\u0000\u0000\u0000"+
-		"XV\u0001\u0000\u0000\u0000YZ\u0005 \u0000\u0000Z\u000b\u0001\u0000\u0000"+
-		"\u0000[\\\u0003\u000e\u0007\u0000\\]\u0005>\u0000\u0000]f\u0001\u0000"+
-		"\u0000\u0000^_\u0005\r\u0000\u0000_`\u0005\u001b\u0000\u0000`a\u0003\u000e"+
-		"\u0007\u0000ab\u0005\u001c\u0000\u0000bc\u0003\f\u0006\u0000cf\u0001\u0000"+
-		"\u0000\u0000df\u0003\n\u0005\u0000e[\u0001\u0000\u0000\u0000e^\u0001\u0000"+
-		"\u0000\u0000ed\u0001\u0000\u0000\u0000f\r\u0001\u0000\u0000\u0000gh\u0006"+
-		"\u0007\uffff\uffff\u0000hi\u0005\u001b\u0000\u0000ij\u0003\u000e\u0007"+
-		"\u0000jk\u0005\u001c\u0000\u0000ko\u0001\u0000\u0000\u0000lo\u0003\u0010"+
-		"\b\u0000mo\u0005K\u0000\u0000ng\u0001\u0000\u0000\u0000nl\u0001\u0000"+
-		"\u0000\u0000nm\u0001\u0000\u0000\u0000o\u0081\u0001\u0000\u0000\u0000"+
-		"pq\n\u0001\u0000\u0000qr\u00059\u0000\u0000rs\u0005K\u0000\u0000s|\u0005"+
-		"\u001b\u0000\u0000ty\u0003\u000e\u0007\u0000uv\u0005?\u0000\u0000vx\u0003"+
-		"\u000e\u0007\u0000wu\u0001\u0000\u0000\u0000x{\u0001\u0000\u0000\u0000"+
-		"yw\u0001\u0000\u0000\u0000yz\u0001\u0000\u0000\u0000z}\u0001\u0000\u0000"+
-		"\u0000{y\u0001\u0000\u0000\u0000|t\u0001\u0000\u0000\u0000|}\u0001\u0000"+
-		"\u0000\u0000}~\u0001\u0000\u0000\u0000~\u0080\u0005\u001c\u0000\u0000"+
-		"\u007fp\u0001\u0000\u0000\u0000\u0080\u0083\u0001\u0000\u0000\u0000\u0081"+
-		"\u007f\u0001\u0000\u0000\u0000\u0081\u0082\u0001\u0000\u0000\u0000\u0082"+
-		"\u000f\u0001\u0000\u0000\u0000\u0083\u0081\u0001\u0000\u0000\u0000\u0084"+
-		"\u0088\u0005\u0006\u0000\u0000\u0085\u0088\u0005\u0005\u0000\u0000\u0086"+
-		"\u0088\u0005\u0007\u0000\u0000\u0087\u0084\u0001\u0000\u0000\u0000\u0087"+
-		"\u0085\u0001\u0000\u0000\u0000\u0087\u0086\u0001\u0000\u0000\u0000\u0088"+
-		"\u0011\u0001\u0000\u0000\u0000\u0089\u008c\u0003\u001a\r\u0000\u008a\u008c"+
-		"\u0005\u0012\u0000\u0000\u008b\u0089\u0001\u0000\u0000\u0000\u008b\u008a"+
-		"\u0001\u0000\u0000\u0000\u008c\u008e\u0001\u0000\u0000\u0000\u008d\u008f"+
-		"\u0005;\u0000\u0000\u008e\u008d\u0001\u0000\u0000\u0000\u008e\u008f\u0001"+
-		"\u0000\u0000\u0000\u008f\u0091\u0001\u0000\u0000\u0000\u0090\u0092\u0005"+
-		":\u0000\u0000\u0091\u0090\u0001\u0000\u0000\u0000\u0091\u0092\u0001\u0000"+
-		"\u0000\u0000\u0092\u0013\u0001\u0000\u0000\u0000\u0093\u0094\u0007\u0000"+
-		"\u0000\u0000\u0094\u0015\u0001\u0000\u0000\u0000\u0095\u0096\u0005\t\u0000"+
-		"\u0000\u0096\u0097\u0003\u001a\r\u0000\u0097\u0098\u0005>\u0000\u0000"+
-		"\u0098\u0017\u0001\u0000\u0000\u0000\u0099\u009a\u0005\u0011\u0000\u0000"+
-		"\u009a\u009b\u0003\u001a\r\u0000\u009b\u009c\u0005>\u0000\u0000\u009c"+
-		"\u0019\u0001\u0000\u0000\u0000\u009d\u00a2\u0005K\u0000\u0000\u009e\u009f"+
-		"\u00059\u0000\u0000\u009f\u00a1\u0005K\u0000\u0000\u00a0\u009e\u0001\u0000"+
-		"\u0000\u0000\u00a1\u00a4\u0001\u0000\u0000\u0000\u00a2\u00a0\u0001\u0000"+
-		"\u0000\u0000\u00a2\u00a3\u0001\u0000\u0000\u0000\u00a3\u001b\u0001\u0000"+
-		"\u0000\u0000\u00a4\u00a2\u0001\u0000\u0000\u0000\u0013 )03:=GJVeny|\u0081"+
-		"\u0087\u008b\u008e\u0091\u00a2";
+		"\f\u0007\f\u0002\r\u0007\r\u0002\u000e\u0007\u000e\u0002\u000f\u0007\u000f"+
+		"\u0001\u0000\u0001\u0000\u0005\u0000#\b\u0000\n\u0000\f\u0000&\t\u0000"+
+		"\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0005\u0000,\b\u0000"+
+		"\n\u0000\f\u0000/\t\u0000\u0001\u0000\u0001\u0000\u0001\u0001\u0001\u0001"+
+		"\u0003\u00015\b\u0001\u0001\u0002\u0003\u00028\b\u0002\u0001\u0002\u0001"+
+		"\u0002\u0001\u0002\u0001\u0002\u0001\u0003\u0003\u0003?\b\u0003\u0001"+
+		"\u0003\u0003\u0003B\b\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001"+
+		"\u0003\u0001\u0003\u0001\u0003\u0005\u0003J\b\u0003\n\u0003\f\u0003M\t"+
+		"\u0003\u0003\u0003O\b\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001"+
+		"\u0004\u0001\u0004\u0001\u0004\u0001\u0005\u0001\u0005\u0005\u0005Y\b"+
+		"\u0005\n\u0005\f\u0005\\\t\u0005\u0001\u0005\u0001\u0005\u0001\u0006\u0001"+
+		"\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001"+
+		"\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001"+
+		"\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001"+
+		"\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001"+
+		"\u0006\u0001\u0006\u0001\u0006\u0003\u0006|\b\u0006\u0001\u0006\u0001"+
+		"\u0006\u0001\u0006\u0003\u0006\u0081\b\u0006\u0001\u0006\u0001\u0006\u0001"+
+		"\u0006\u0003\u0006\u0086\b\u0006\u0001\u0006\u0003\u0006\u0089\b\u0006"+
+		"\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007"+
+		"\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0003\u0007\u0095\b\u0007"+
+		"\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007"+
+		"\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007"+
+		"\u0001\u0007\u0003\u0007\u00a4\b\u0007\u0001\u0007\u0001\u0007\u0001\u0007"+
+		"\u0001\u0007\u0003\u0007\u00aa\b\u0007\u0001\u0007\u0001\u0007\u0001\u0007"+
+		"\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0005\u0007"+
+		"\u00b4\b\u0007\n\u0007\f\u0007\u00b7\t\u0007\u0003\u0007\u00b9\b\u0007"+
+		"\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007"+
+		"\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007"+
+		"\u0001\u0007\u0003\u0007\u00c8\b\u0007\u0005\u0007\u00ca\b\u0007\n\u0007"+
+		"\f\u0007\u00cd\t\u0007\u0001\b\u0001\b\u0001\t\u0001\t\u0001\n\u0001\n"+
+		"\u0001\n\u0003\n\u00d6\b\n\u0001\u000b\u0001\u000b\u0003\u000b\u00da\b"+
+		"\u000b\u0001\u000b\u0003\u000b\u00dd\b\u000b\u0001\u000b\u0003\u000b\u00e0"+
+		"\b\u000b\u0001\f\u0001\f\u0001\r\u0001\r\u0001\r\u0001\r\u0001\u000e\u0001"+
+		"\u000e\u0001\u000e\u0001\u000e\u0001\u000f\u0001\u000f\u0001\u000f\u0005"+
+		"\u000f\u00ef\b\u000f\n\u000f\f\u000f\u00f2\t\u000f\u0001\u000f\u0000\u0001"+
+		"\u000e\u0010\u0000\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0016"+
+		"\u0018\u001a\u001c\u001e\u0000\u0004\u0001\u0000\u001a\u001b\u0003\u0000"+
+		"\",..07\u0002\u0000..89\u0001\u0000\u0015\u0017\u010c\u0000 \u0001\u0000"+
+		"\u0000\u0000\u00024\u0001\u0000\u0000\u0000\u00047\u0001\u0000\u0000\u0000"+
+		"\u0006>\u0001\u0000\u0000\u0000\bS\u0001\u0000\u0000\u0000\nV\u0001\u0000"+
+		"\u0000\u0000\f\u0088\u0001\u0000\u0000\u0000\u000e\u0094\u0001\u0000\u0000"+
+		"\u0000\u0010\u00ce\u0001\u0000\u0000\u0000\u0012\u00d0\u0001\u0000\u0000"+
+		"\u0000\u0014\u00d5\u0001\u0000\u0000\u0000\u0016\u00d9\u0001\u0000\u0000"+
+		"\u0000\u0018\u00e1\u0001\u0000\u0000\u0000\u001a\u00e3\u0001\u0000\u0000"+
+		"\u0000\u001c\u00e7\u0001\u0000\u0000\u0000\u001e\u00eb\u0001\u0000\u0000"+
+		"\u0000 $\u0003\u001a\r\u0000!#\u0003\u001c\u000e\u0000\"!\u0001\u0000"+
+		"\u0000\u0000#&\u0001\u0000\u0000\u0000$\"\u0001\u0000\u0000\u0000$%\u0001"+
+		"\u0000\u0000\u0000%\'\u0001\u0000\u0000\u0000&$\u0001\u0000\u0000\u0000"+
+		"\'(\u0005\b\u0000\u0000()\u0005L\u0000\u0000)-\u0005 \u0000\u0000*,\u0003"+
+		"\u0002\u0001\u0000+*\u0001\u0000\u0000\u0000,/\u0001\u0000\u0000\u0000"+
+		"-+\u0001\u0000\u0000\u0000-.\u0001\u0000\u0000\u0000.0\u0001\u0000\u0000"+
+		"\u0000/-\u0001\u0000\u0000\u000001\u0005!\u0000\u00001\u0001\u0001\u0000"+
+		"\u0000\u000025\u0003\u0004\u0002\u000035\u0003\u0006\u0003\u000042\u0001"+
+		"\u0000\u0000\u000043\u0001\u0000\u0000\u00005\u0003\u0001\u0000\u0000"+
+		"\u000068\u0003\u0018\f\u000076\u0001\u0000\u0000\u000078\u0001\u0000\u0000"+
+		"\u000089\u0001\u0000\u0000\u00009:\u0003\u0016\u000b\u0000:;\u0005L\u0000"+
+		"\u0000;<\u0005?\u0000\u0000<\u0005\u0001\u0000\u0000\u0000=?\u0003\u0018"+
+		"\f\u0000>=\u0001\u0000\u0000\u0000>?\u0001\u0000\u0000\u0000?A\u0001\u0000"+
+		"\u0000\u0000@B\u0005\u0013\u0000\u0000A@\u0001\u0000\u0000\u0000AB\u0001"+
+		"\u0000\u0000\u0000BC\u0001\u0000\u0000\u0000CD\u0003\u0016\u000b\u0000"+
+		"DE\u0005L\u0000\u0000EN\u0005\u001c\u0000\u0000FK\u0003\b\u0004\u0000"+
+		"GH\u0005@\u0000\u0000HJ\u0003\b\u0004\u0000IG\u0001\u0000\u0000\u0000"+
+		"JM\u0001\u0000\u0000\u0000KI\u0001\u0000\u0000\u0000KL\u0001\u0000\u0000"+
+		"\u0000LO\u0001\u0000\u0000\u0000MK\u0001\u0000\u0000\u0000NF\u0001\u0000"+
+		"\u0000\u0000NO\u0001\u0000\u0000\u0000OP\u0001\u0000\u0000\u0000PQ\u0005"+
+		"\u001d\u0000\u0000QR\u0003\n\u0005\u0000R\u0007\u0001\u0000\u0000\u0000"+
+		"ST\u0003\u0016\u000b\u0000TU\u0005L\u0000\u0000U\t\u0001\u0000\u0000\u0000"+
+		"VZ\u0005 \u0000\u0000WY\u0003\f\u0006\u0000XW\u0001\u0000\u0000\u0000"+
+		"Y\\\u0001\u0000\u0000\u0000ZX\u0001\u0000\u0000\u0000Z[\u0001\u0000\u0000"+
+		"\u0000[]\u0001\u0000\u0000\u0000\\Z\u0001\u0000\u0000\u0000]^\u0005!\u0000"+
+		"\u0000^\u000b\u0001\u0000\u0000\u0000_`\u0003\u000e\u0007\u0000`a\u0005"+
+		"?\u0000\u0000a\u0089\u0001\u0000\u0000\u0000bc\u0005\r\u0000\u0000cd\u0005"+
+		"\u001c\u0000\u0000de\u0003\u000e\u0007\u0000ef\u0005\u001d\u0000\u0000"+
+		"fg\u0003\f\u0006\u0000g\u0089\u0001\u0000\u0000\u0000hi\u0005\u000b\u0000"+
+		"\u0000ij\u0005\u001c\u0000\u0000jk\u0003\u000e\u0007\u0000kl\u0005\u001d"+
+		"\u0000\u0000lm\u0003\f\u0006\u0000m\u0089\u0001\u0000\u0000\u0000no\u0005"+
+		"\n\u0000\u0000o\u0089\u0003\f\u0006\u0000pq\u0005\f\u0000\u0000qr\u0005"+
+		"\u001c\u0000\u0000rs\u0003\u0016\u000b\u0000st\u0005L\u0000\u0000tu\u0005"+
+		">\u0000\u0000uv\u0003\u000e\u0007\u0000vw\u0005\u001d\u0000\u0000wx\u0003"+
+		"\f\u0006\u0000x\u0089\u0001\u0000\u0000\u0000y\u0089\u0003\n\u0005\u0000"+
+		"z|\u0003\u0016\u000b\u0000{z\u0001\u0000\u0000\u0000{|\u0001\u0000\u0000"+
+		"\u0000|}\u0001\u0000\u0000\u0000}\u0080\u0005L\u0000\u0000~\u007f\u0005"+
+		"A\u0000\u0000\u007f\u0081\u0003\u000e\u0007\u0000\u0080~\u0001\u0000\u0000"+
+		"\u0000\u0080\u0081\u0001\u0000\u0000\u0000\u0081\u0082\u0001\u0000\u0000"+
+		"\u0000\u0082\u0089\u0005?\u0000\u0000\u0083\u0085\u0005\u0014\u0000\u0000"+
+		"\u0084\u0086\u0003\u000e\u0007\u0000\u0085\u0084\u0001\u0000\u0000\u0000"+
+		"\u0085\u0086\u0001\u0000\u0000\u0000\u0086\u0087\u0001\u0000\u0000\u0000"+
+		"\u0087\u0089\u0005?\u0000\u0000\u0088_\u0001\u0000\u0000\u0000\u0088b"+
+		"\u0001\u0000\u0000\u0000\u0088h\u0001\u0000\u0000\u0000\u0088n\u0001\u0000"+
+		"\u0000\u0000\u0088p\u0001\u0000\u0000\u0000\u0088y\u0001\u0000\u0000\u0000"+
+		"\u0088{\u0001\u0000\u0000\u0000\u0088\u0083\u0001\u0000\u0000\u0000\u0089"+
+		"\r\u0001\u0000\u0000\u0000\u008a\u008b\u0006\u0007\uffff\uffff\u0000\u008b"+
+		"\u0095\u0003\u0014\n\u0000\u008c\u0095\u0005L\u0000\u0000\u008d\u008e"+
+		"\u0005\u001c\u0000\u0000\u008e\u008f\u0003\u000e\u0007\u0000\u008f\u0090"+
+		"\u0005\u001d\u0000\u0000\u0090\u0095\u0001\u0000\u0000\u0000\u0091\u0092"+
+		"\u0003\u0012\t\u0000\u0092\u0093\u0003\u000e\u0007\u0001\u0093\u0095\u0001"+
+		"\u0000\u0000\u0000\u0094\u008a\u0001\u0000\u0000\u0000\u0094\u008c\u0001"+
+		"\u0000\u0000\u0000\u0094\u008d\u0001\u0000\u0000\u0000\u0094\u0091\u0001"+
+		"\u0000\u0000\u0000\u0095\u00cb\u0001\u0000\u0000\u0000\u0096\u0097\n\u0003"+
+		"\u0000\u0000\u0097\u0098\u0005\u0018\u0000\u0000\u0098\u00ca\u0003\u000e"+
+		"\u0007\u0004\u0099\u009a\n\u0002\u0000\u0000\u009a\u009b\u0003\u0010\b"+
+		"\u0000\u009b\u009c\u0003\u000e\u0007\u0003\u009c\u00ca\u0001\u0000\u0000"+
+		"\u0000\u009d\u009e\n\f\u0000\u0000\u009e\u009f\u0007\u0000\u0000\u0000"+
+		"\u009f\u00ca\u0003\u0016\u000b\u0000\u00a0\u00a1\n\t\u0000\u0000\u00a1"+
+		"\u00a3\u0005:\u0000\u0000\u00a2\u00a4\u0005<\u0000\u0000\u00a3\u00a2\u0001"+
+		"\u0000\u0000\u0000\u00a3\u00a4\u0001\u0000\u0000\u0000\u00a4\u00a5\u0001"+
+		"\u0000\u0000\u0000\u00a5\u00ca\u0005L\u0000\u0000\u00a6\u00a7\n\b\u0000"+
+		"\u0000\u00a7\u00a9\u0005\u001e\u0000\u0000\u00a8\u00aa\u0005<\u0000\u0000"+
+		"\u00a9\u00a8\u0001\u0000\u0000\u0000\u00a9\u00aa\u0001\u0000\u0000\u0000"+
+		"\u00aa\u00ab\u0001\u0000\u0000\u0000\u00ab\u00ac\u0003\u000e\u0007\u0000"+
+		"\u00ac\u00ad\u0005\u001f\u0000\u0000\u00ad\u00ca\u0001\u0000\u0000\u0000"+
+		"\u00ae\u00af\n\u0007\u0000\u0000\u00af\u00b8\u0005\u001c\u0000\u0000\u00b0"+
+		"\u00b5\u0003\u000e\u0007\u0000\u00b1\u00b2\u0005@\u0000\u0000\u00b2\u00b4"+
+		"\u0003\u000e\u0007\u0000\u00b3\u00b1\u0001\u0000\u0000\u0000\u00b4\u00b7"+
+		"\u0001\u0000\u0000\u0000\u00b5\u00b3\u0001\u0000\u0000\u0000\u00b5\u00b6"+
+		"\u0001\u0000\u0000\u0000\u00b6\u00b9\u0001\u0000\u0000\u0000\u00b7\u00b5"+
+		"\u0001\u0000\u0000\u0000\u00b8\u00b0\u0001\u0000\u0000\u0000\u00b8\u00b9"+
+		"\u0001\u0000\u0000\u0000\u00b9\u00ba\u0001\u0000\u0000\u0000\u00ba\u00ca"+
+		"\u0005\u001d\u0000\u0000\u00bb\u00bc\n\u0006\u0000\u0000\u00bc\u00bd\u0005"+
+		"<\u0000\u0000\u00bd\u00be\u0005\u001c\u0000\u0000\u00be\u00bf\u0003\u000e"+
+		"\u0007\u0000\u00bf\u00c0\u0005\u001d\u0000\u0000\u00c0\u00ca\u0001\u0000"+
+		"\u0000\u0000\u00c1\u00c2\n\u0005\u0000\u0000\u00c2\u00c7\u00058\u0000"+
+		"\u0000\u00c3\u00c4\u0005\u001c\u0000\u0000\u00c4\u00c5\u0003\u000e\u0007"+
+		"\u0000\u00c5\u00c6\u0005\u001d\u0000\u0000\u00c6\u00c8\u0001\u0000\u0000"+
+		"\u0000\u00c7\u00c3\u0001\u0000\u0000\u0000\u00c7\u00c8\u0001\u0000\u0000"+
+		"\u0000\u00c8\u00ca\u0001\u0000\u0000\u0000\u00c9\u0096\u0001\u0000\u0000"+
+		"\u0000\u00c9\u0099\u0001\u0000\u0000\u0000\u00c9\u009d\u0001\u0000\u0000"+
+		"\u0000\u00c9\u00a0\u0001\u0000\u0000\u0000\u00c9\u00a6\u0001\u0000\u0000"+
+		"\u0000\u00c9\u00ae\u0001\u0000\u0000\u0000\u00c9\u00bb\u0001\u0000\u0000"+
+		"\u0000\u00c9\u00c1\u0001\u0000\u0000\u0000\u00ca\u00cd\u0001\u0000\u0000"+
+		"\u0000\u00cb\u00c9\u0001\u0000\u0000\u0000\u00cb\u00cc\u0001\u0000\u0000"+
+		"\u0000\u00cc\u000f\u0001\u0000\u0000\u0000\u00cd\u00cb\u0001\u0000\u0000"+
+		"\u0000\u00ce\u00cf\u0007\u0001\u0000\u0000\u00cf\u0011\u0001\u0000\u0000"+
+		"\u0000\u00d0\u00d1\u0007\u0002\u0000\u0000\u00d1\u0013\u0001\u0000\u0000"+
+		"\u0000\u00d2\u00d6\u0005\u0006\u0000\u0000\u00d3\u00d6\u0005\u0005\u0000"+
+		"\u0000\u00d4\u00d6\u0005\u0007\u0000\u0000\u00d5\u00d2\u0001\u0000\u0000"+
+		"\u0000\u00d5\u00d3\u0001\u0000\u0000\u0000\u00d5\u00d4\u0001\u0000\u0000"+
+		"\u0000\u00d6\u0015\u0001\u0000\u0000\u0000\u00d7\u00da\u0003\u001e\u000f"+
+		"\u0000\u00d8\u00da\u0005\u0012\u0000\u0000\u00d9\u00d7\u0001\u0000\u0000"+
+		"\u0000\u00d9\u00d8\u0001\u0000\u0000\u0000\u00da\u00dc\u0001\u0000\u0000"+
+		"\u0000\u00db\u00dd\u0005<\u0000\u0000\u00dc\u00db\u0001\u0000\u0000\u0000"+
+		"\u00dc\u00dd\u0001\u0000\u0000\u0000\u00dd\u00df\u0001\u0000\u0000\u0000"+
+		"\u00de\u00e0\u0005;\u0000\u0000\u00df\u00de\u0001\u0000\u0000\u0000\u00df"+
+		"\u00e0\u0001\u0000\u0000\u0000\u00e0\u0017\u0001\u0000\u0000\u0000\u00e1"+
+		"\u00e2\u0007\u0003\u0000\u0000\u00e2\u0019\u0001\u0000\u0000\u0000\u00e3"+
+		"\u00e4\u0005\t\u0000\u0000\u00e4\u00e5\u0003\u001e\u000f\u0000\u00e5\u00e6"+
+		"\u0005?\u0000\u0000\u00e6\u001b\u0001\u0000\u0000\u0000\u00e7\u00e8\u0005"+
+		"\u0011\u0000\u0000\u00e8\u00e9\u0003\u001e\u000f\u0000\u00e9\u00ea\u0005"+
+		"?\u0000\u0000\u00ea\u001d\u0001\u0000\u0000\u0000\u00eb\u00f0\u0005L\u0000"+
+		"\u0000\u00ec\u00ed\u0005:\u0000\u0000\u00ed\u00ef\u0005L\u0000\u0000\u00ee"+
+		"\u00ec\u0001\u0000\u0000\u0000\u00ef\u00f2\u0001\u0000\u0000\u0000\u00f0"+
+		"\u00ee\u0001\u0000\u0000\u0000\u00f0\u00f1\u0001\u0000\u0000\u0000\u00f1"+
+		"\u001f\u0001\u0000\u0000\u0000\u00f2\u00f0\u0001\u0000\u0000\u0000\u001a"+
+		"$-47>AKNZ{\u0080\u0085\u0088\u0094\u00a3\u00a9\u00b5\u00b8\u00c7\u00c9"+
+		"\u00cb\u00d5\u00d9\u00dc\u00df\u00f0";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

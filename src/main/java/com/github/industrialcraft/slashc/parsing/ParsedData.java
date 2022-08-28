@@ -15,6 +15,9 @@ public class ParsedData<T> {
         this.charLine = charLine;
         this.length = length;
     }
+    public <U> ParsedData copy(U newData){
+        return new ParsedData<U>(newData, line, charLine, length);
+    }
     public static <T> ParsedData<T> fromSymbol(T data, Token symbol){
         int length = symbol.getStopIndex()-symbol.getStartIndex();
         return new ParsedData<>(data, symbol.getLine(), symbol.getCharPositionInLine(), length);

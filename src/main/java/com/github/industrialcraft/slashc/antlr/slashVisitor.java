@@ -1,4 +1,4 @@
-// Generated from /home/mmm/Plocha/IndustrialCraft/SlashC/src/main/antlr/slash.g4 by ANTLR 4.10.1
+// Generated from /home/mmm/Desktop/IndustrialCraft/SlashC/src/main/antlr/slash.g4 by ANTLR 4.10.1
 package com.github.industrialcraft.slashc.antlr;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -61,12 +61,68 @@ public interface slashVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIfInst(slashParser.IfInstContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code whileInst}
+	 * labeled alternative in {@link slashParser#instruction}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWhileInst(slashParser.WhileInstContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code loopInst}
+	 * labeled alternative in {@link slashParser#instruction}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLoopInst(slashParser.LoopInstContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code forInst}
+	 * labeled alternative in {@link slashParser#instruction}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForInst(slashParser.ForInstContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code codeFrameInst}
 	 * labeled alternative in {@link slashParser#instruction}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitCodeFrameInst(slashParser.CodeFrameInstContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code variableInst}
+	 * labeled alternative in {@link slashParser#instruction}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariableInst(slashParser.VariableInstContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code returnInst}
+	 * labeled alternative in {@link slashParser#instruction}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReturnInst(slashParser.ReturnInstContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code orElseExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOrElseExpr(slashParser.OrElseExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code castExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCastExpr(slashParser.CastExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code singleOperationExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSingleOperationExpr(slashParser.SingleOperationExprContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code literalExpr}
 	 * labeled alternative in {@link slashParser#expr}.
@@ -75,12 +131,40 @@ public interface slashVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLiteralExpr(slashParser.LiteralExprContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code nullCheckExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNullCheckExpr(slashParser.NullCheckExprContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code callExpr}
 	 * labeled alternative in {@link slashParser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitCallExpr(slashParser.CallExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code rangeExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRangeExpr(slashParser.RangeExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code accessExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAccessExpr(slashParser.AccessExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code idExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIdExpr(slashParser.IdExprContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code encapsulateExpr}
 	 * labeled alternative in {@link slashParser#expr}.
@@ -89,12 +173,31 @@ public interface slashVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitEncapsulateExpr(slashParser.EncapsulateExprContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code idExpr}
+	 * Visit a parse tree produced by the {@code biOperationExpr}
 	 * labeled alternative in {@link slashParser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIdExpr(slashParser.IdExprContext ctx);
+	T visitBiOperationExpr(slashParser.BiOperationExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code accessArrExpr}
+	 * labeled alternative in {@link slashParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAccessArrExpr(slashParser.AccessArrExprContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link slashParser#biOperation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBiOperation(slashParser.BiOperationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link slashParser#singleOperation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSingleOperation(slashParser.SingleOperationContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code intLiteral}
 	 * labeled alternative in {@link slashParser#literal}.
