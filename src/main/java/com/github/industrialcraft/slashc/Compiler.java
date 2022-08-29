@@ -49,8 +49,6 @@ public class Compiler {
         if(didSourceParsingFail)
             return;
         TypeStorage typeStorage = new TypeStorage();
-        typeStorage.add(new BoolPrimitiveType());
-        typeStorage.add(new VoidType());
         ArrayList<ClassDataType> classes = new ArrayList<>();
         for(ParsedSourceFile sourceFile : sourceFiles){
             classes.add(typeStorage.addSource(sourceFile));

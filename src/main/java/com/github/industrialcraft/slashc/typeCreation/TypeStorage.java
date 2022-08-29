@@ -5,9 +5,16 @@ import com.github.industrialcraft.slashc.parsing.ParsedSourceFile;
 import java.util.ArrayList;
 
 public class TypeStorage {
+    public static final BoolPrimitiveType BOOL_PRIMITIVE = new BoolPrimitiveType();
+    public static final IntPrimitiveType INT_PRIMITIVE = new IntPrimitiveType();
+    public static final VoidType VOID_PRIMITIVE = new VoidType();
+
     private final ArrayList<DataType> types;
     public TypeStorage() {
         this.types = new ArrayList<>();
+        this.add(BOOL_PRIMITIVE);
+        this.add(VOID_PRIMITIVE);
+        this.add(INT_PRIMITIVE);
     }
     public DataType getType(String type, ImportList importList){
         String full = importList.resolve(type);

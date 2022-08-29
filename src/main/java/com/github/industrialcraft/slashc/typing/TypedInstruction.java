@@ -21,13 +21,31 @@ public class TypedInstruction {
             return new TypedExpressionInstruction(TypedExpression.fromParsed(exprInstruction.expression, typedNameProvider, typeStorage, importList, compilationOutput));
         }
         if(instruction instanceof ParsedInstruction.ParsedVariableInstruction typedVariableInstruction){
+            //todo: make readable
             TypedType type = null;
             if(typedVariableInstruction.type != null)
                 type = typedVariableInstruction.type.toTyped(typeStorage, importList, compilationOutput);
             TypedExpression expression = null;
             if(typedVariableInstruction.expression != null)
                 expression = TypedExpression.fromParsed(typedVariableInstruction.expression, typedNameProvider, typeStorage, importList, compilationOutput);
-            return new TypedVariableInstruction(type, typedVariableInstruction.id, expression);
+            if(type==null&&expression==null){
+                compilationOutput.addError(typedVariableInstruction.parsedData, "variable instruction must at least declare or assign");
+                return null;
+            }
+            TypedNamedType namedType = null;
+            if(type!=null)
+                namedType = new TypedNamedType(type, typedVariableInstruction.id);
+            else
+                namedType = typedNameProvider.resolveTypeFromName(typedVariableInstruction.id.data);
+            if(namedType == null){
+                compilationOutput.addError(typedVariableInstruction.parsedData, "Couldnt find id " + typedVariableInstruction.id.data + " in scope");
+                return null;
+            }
+            if(expression != null && namedType.type.type.data != expression.returnType){
+                compilationOutput.addError(typedVariableInstruction.parsedData, "Type " + expression.returnType.name + " cannot be assigned to type " + namedType.type.type.data.name);
+                return null;
+            }
+            return new TypedVariableInstruction(namedType, type!=null, expression);
         }
         if(instruction instanceof ParsedInstruction.ParsedReturnInstruction returnInstruction){
             TypedExpression expression = null;
@@ -62,12 +80,12 @@ public class TypedInstruction {
         }
     }
     public static class TypedVariableInstruction extends TypedInstruction{
-        public final TypedType dataType;//nullable
-        public final ParsedData<String> name;
+        public final TypedNamedType namedType;
+        public final boolean declaring;
         public final TypedExpression expression;//nullable
-        public TypedVariableInstruction(TypedType dataType, ParsedData<String> name, TypedExpression expression) {
-            this.dataType = dataType;
-            this.name = name;
+        public TypedVariableInstruction(TypedNamedType namedType, boolean declaring, TypedExpression expression) {
+            this.namedType = namedType;
+            this.declaring = declaring;
             this.expression = expression;
         }
     }
